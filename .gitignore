@@ -17,3 +17,12 @@
 /yarn-error.log
 
 .byebug_history
+
+## VIM
+*.vim
+*.swp
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
