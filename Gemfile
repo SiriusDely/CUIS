@@ -30,8 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'jquery-turbolinks'
 gem 'foundation-rails', '~> 6.0' # required
-gem 'foundation_rails_helper', '~> 3.0'
+# gem 'foundation_rails_helper', '~> 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
