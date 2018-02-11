@@ -2,6 +2,6 @@
   "name": "CUIS",
   "private": true,
   "dependencies": {
-    "jquery": "^2.2.1"
+    "jquery": "^3.3.1"
   }
 }
