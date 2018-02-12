@@ -6,6 +6,23 @@
 
 require 'cucumber/rails'
 
+require 'minitest/spec'
+
+class MinitestWorld
+  include Minitest::Assertions
+  attr_accessor :assertions
+
+  def initialize
+    self.assertions = 0
+  end
+end
+
+# World do
+#   MinitestWorld.new
+# end
+
+World(MultiTest::MinitestWorld)
+
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
