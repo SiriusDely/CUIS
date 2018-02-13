@@ -1,0 +1,2 @@
+class CreditUnion < ApplicationRecord
+end

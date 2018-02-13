@@ -5,7 +5,7 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "user-form" }) do |f| %>
       <h2 class="text-center">Log in</h2>
       <%= f.label :login do %> User ID
-        <%= f.email_field :login, autofocus: true  %>
+        <%= f.text_field :login, autofocus: true  %>
       <% end -%>
       <%= f.label :password do %> Password
         <%= f.password_field :password, autocomplete: "off" %>

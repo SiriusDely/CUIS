@@ -1,0 +1,27 @@
+<%= form_with(model: credit_union, local: true) do |form| %>
+  <% if credit_union.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(credit_union.errors.count, "error") %> prohibited this credit_union from being saved:</h2>
+
+      <ul>
+      <% credit_union.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, id: :credit_union_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_name %>
+    <%= form.text_field :short_name, id: :credit_union_short_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
