@@ -6,8 +6,11 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :credit_unions
   get "home/index"
 
   devise_for :users
+
+  resources :credit_unions
+  resources :users
+
  end
