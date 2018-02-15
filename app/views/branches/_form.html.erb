@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :credit_union_id %>
-    <%= form.text_field :credit_union_id, id: :branch_credit_union_id %>
+    <%= form.collection_select :credit_union_id, @credit_unions, :id, :short_name %>
   </div>
 
   <div class="actions">

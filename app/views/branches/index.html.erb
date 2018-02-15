@@ -3,13 +3,15 @@
 
     <h1>Branches</h1>
 
+    <br>
+
     <table class="hover">
       <thead>
         <tr>
-          <th width="200">Full Name</th>
-          <th width="200">Short Name</th>
-          <th width="200">Credit Union</th>
-          <th width="200">Actions</th>
+          <th>Full Name</th>
+          <th width="150">Short Name</th>
+          <th width="150">Credit Union</th>
+          <th width="100">Actions</th>
         </tr>
       </thead>
 
@@ -23,7 +25,7 @@
               <div class="button-group">
                 <%= link_to 'Show', branch, class: "button" %>
                 <%= link_to 'Edit', edit_branch_path(branch), class: "button warning" %>
-                <%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+                <%= link_to 'Delete', branch, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
               </div>
             </td>
           </tr>

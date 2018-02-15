@@ -5,23 +5,28 @@
       <% if user_signed_in? %>
         <li>
           <%= link_to "Credit Unions", credit_unions_path %>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "New Credit Union", new_credit_union_path %>
+            </li>
+          </ul>
         </li>
         <li>
           <%= link_to "Branches", branches_path %>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "New Branch", new_branch_path %>
+            </li>
+          </ul>
         </li>
+        <li>
+          <a href="#">Members</a>
+        </li>
+        <li><a href="#">Savings</a></li>
+        <li><a href="#">Checkings</a></li>
+        <li><a href="#">Deposits</a></li>
+        <li><a href="#">Loans</a></li>
       <% end %>
-      <li>
-        <a href="#">Members</a>
-        <ul class="menu vertical">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Savings</a></li>
-      <li><a href="#">Checkings</a></li>
-      <li><a href="#">Deposits</a></li>
-      <li><a href="#">Loans</a></li>
     </ul>
   </div>
   <div class="top-bar-right">

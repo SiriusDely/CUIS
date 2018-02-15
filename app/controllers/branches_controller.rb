@@ -15,10 +15,13 @@ class BranchesController < ApplicationController
   # GET /branches/new
   def new
     @branch = Branch.new
+    @credit_unions = CreditUnion.all
   end
 
   # GET /branches/1/edit
   def edit
+    @branch = Branch.find params[:id]
+    @credit_unions = CreditUnion.all
   end
 
   # POST /branches
