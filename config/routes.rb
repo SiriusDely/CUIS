@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     root :to => "credit_unions#index", as: :authenticated
   end
 
-  root to: "home#index"
+  root to: "page#home"
 
-  get "home/index"
+  # get "/home", to: "page#home"
 
   devise_for :users
 
