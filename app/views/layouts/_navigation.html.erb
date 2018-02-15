@@ -2,9 +2,14 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text">CUIS</li>
-      <li>
-        <%= link_to "Credit Unions", credit_unions_path %>
-      </li>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "Credit Unions", credit_unions_path %>
+        </li>
+        <li>
+          <%= link_to "Branches", branches_path %>
+        </li>
+      <% end %>
       <li>
         <a href="#">Members</a>
         <ul class="menu vertical">

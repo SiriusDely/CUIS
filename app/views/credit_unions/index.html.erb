@@ -1,27 +1,36 @@
-<h1>Credit Unions</h1>
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
 
-<table>
-  <thead>
-    <tr>
-      <th>Full name</th>
-      <th>Short name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Credit Unions</h1>
 
-  <tbody>
-    <% @credit_unions.each do |credit_union| %>
-      <tr>
-        <td><%= credit_union.full_name %></td>
-        <td><%= credit_union.short_name %></td>
-        <td><%= link_to 'Show', credit_union %></td>
-        <td><%= link_to 'Edit', edit_credit_union_path(credit_union) %></td>
-        <td><%= link_to 'Destroy', credit_union, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="hover">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th width="200">Short Name</th>
+          <th width="200">Actions</th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @credit_unions.each do |credit_union| %>
+          <tr>
+            <td><%= credit_union.full_name %></td>
+            <td><%= credit_union.short_name %></td>
+            <td>
+              <div class="button-group">
+                <%= link_to 'Show', credit_union, class: "button" %>
+                <%= link_to 'Edit', edit_credit_union_path(credit_union), class: "button warning" %>
+                <%= link_to 'Destroy', credit_union, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Credit Union', new_credit_union_path %>
+    <br>
+
+    <%= link_to 'New Credit Union', new_credit_union_path, class: "button secondary" %>
+  </div>
+</div>

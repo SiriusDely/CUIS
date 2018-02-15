@@ -1,12 +1,21 @@
-<p>
-  <strong>Full name:</strong>
-  <%= @credit_union.full_name %>
-</p>
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+    <div class="callout">
 
-<p>
-  <strong>Short name:</strong>
-  <%= @credit_union.short_name %>
-</p>
+      <p>
+      <strong>Full name:</strong>
+      <%= @credit_union.full_name %>
+      </p>
 
-<%= link_to 'Edit', edit_credit_union_path(@credit_union) %> |
-<%= link_to 'Back', credit_unions_path %>
+      <p>
+      <strong>Short name:</strong>
+      <%= @credit_union.short_name %>
+      </p>
+
+    </div>
+    <div class="button-group">
+      <%= link_to '<< Back', credit_unions_path, class: "button secondary" %>
+      <%= link_to 'Edit', edit_credit_union_path(@credit_union), class: "button warning" %>
+    </div>
+  </div>
+</div>
