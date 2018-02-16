@@ -1,5 +1,7 @@
 class BranchesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /branches
   # GET /branches.json
@@ -34,6 +36,7 @@ class BranchesController < ApplicationController
         format.html { redirect_to @branch, notice: 'Branch was successfully created.' }
         format.json { render :show, status: :created, location: @branch }
       else
+        @credit_unions = CreditUnion.all
         format.html { render :new }
         format.json { render json: @branch.errors, status: :unprocessable_entity }
       end

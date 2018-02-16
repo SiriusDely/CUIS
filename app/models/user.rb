@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  ROLES = %i[admin teller adm cs hr]
+  ROLES = %i[super_admin manager cu_admin branch_head hr member_service teller]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

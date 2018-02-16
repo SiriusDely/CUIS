@@ -30,10 +30,15 @@
     </ul>
   </div>
   <div class="top-bar-right">
-    <ul class="menu">
+    <ul class="dropdown menu" data-dropdown-menu>
       <% if user_signed_in? %>
         <li>
-          <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
+          <a href="#"><%= current_user.username %></a>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
+            </li>
+          </ul>
         </li>
       <% else %>
         <li>

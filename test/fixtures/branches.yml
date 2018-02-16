@@ -7,7 +7,7 @@ one:
   credit_union: one
 
 two:
-  full_name: MyString
-  short_name: MyString
+  full_name: MyString2
+  short_name: MyString2
   address: MyString
   credit_union: two

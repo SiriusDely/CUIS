@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class BranchesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    @user = users(:admin)
+    sign_in @user
     @branch = branches(:one)
   end
 
@@ -17,7 +21,7 @@ class BranchesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create branch" do
     assert_difference('Branch.count') do
-      post branches_url, params: { branch: { address: @branch.address, credit_union_id: @branch.credit_union_id, full_name: @branch.full_name, short_name: @branch.short_name } }
+      post branches_url, params: { branch: { address: @branch.address, credit_union_id: @branch.credit_union_id, full_name: @branch.full_name, short_name: "short_name" } }
     end
 
     assert_redirected_to branch_url(Branch.last)

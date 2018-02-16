@@ -6,11 +6,12 @@
 #
 admin:
   email: admin@cuis.coop
+  roles_mask: 1
 
 manager:
   email: manager@cuis.coop
 
 <% 1000.times do |n| %>
-member_<%= n %>:
-  email: <%= "member_#{n}@cuis.coop" %>
+# member_<%= n %>:
+# email: <%= "member_#{n}@cuis.coop" %>
 <% end %>

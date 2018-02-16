@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class CreditUnionsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    @user = users(:admin)
+    sign_in @user
     @credit_union = credit_unions(:one)
   end
 
@@ -17,7 +21,7 @@ class CreditUnionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create credit_union" do
     assert_difference('CreditUnion.count') do
-      post credit_unions_url, params: { credit_union: { full_name: @credit_union.full_name, short_name: @credit_union.short_name } }
+      post credit_unions_url, params: { credit_union: { full_name: @credit_union.full_name, short_name: "unique_name" } }
     end
 
     assert_redirected_to credit_union_url(CreditUnion.last)

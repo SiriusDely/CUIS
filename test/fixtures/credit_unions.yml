@@ -5,5 +5,5 @@ one:
   short_name: MyString
 
 two:
-  full_name: MyString
-  short_name: MyString
+  full_name: MyString2
+  short_name: MyString2

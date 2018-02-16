@@ -2,6 +2,8 @@ class CreditUnionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_credit_union, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /credit_unions
   # GET /credit_unions.json
   def index
