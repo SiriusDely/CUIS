@@ -9,6 +9,11 @@ class CreditUnionsControllerTest < ActionDispatch::IntegrationTest
     @credit_union = credit_unions(:one)
   end
 
+  test "abilities" do
+    ability = Ability.new(@user)
+    assert ability.can?(:manage, @credit_union)
+  end
+
   test "should get index" do
     get credit_unions_url
     assert_response :success

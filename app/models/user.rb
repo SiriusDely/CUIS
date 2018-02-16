@@ -16,6 +16,19 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
 
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
+
+  # use this instead of email_changed? for rails >= 5.1
+  def will_save_change_to_email?
+    false
+  end
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

@@ -12,4 +12,17 @@ module ApplicationHelper
     end
   end
 
+  # def resource_name
+  #   :user
+  # end
+
+  # def resource
+  #   @resource ||= User.new
+  # end
+
+  # def devise_mapping
+  #   logger.debug "asdf"
+  #   @devise_mapping ||= Devise.mappings[:user]
+  # end
+
 end

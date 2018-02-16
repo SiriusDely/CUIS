@@ -1,0 +1,43 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation" class="callout alert">
+      <h5><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h5>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username, "User ID" %>
+    <%= form.text_field :username, id: :user_username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, id: :user_emaili %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %> <i>(leave blank if you don't want to change it)</i>
+    <br />
+    <%= form.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation, "Password Confirmation" %>
+    <!-- <br /> -->
+    <%= form.password_field :password_confirmation, id: :user_password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button expanded" %>
+  </div>
+<% end %>
