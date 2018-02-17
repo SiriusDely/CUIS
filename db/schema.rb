@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215084038) do
+ActiveRecord::Schema.define(version: 20180216154249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(version: 20180215084038) do
     t.string "short_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.string "birth_place"
+    t.bigint "credit_union_id"
+    t.bigint "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_members_on_branch_id"
+    t.index ["credit_union_id"], name: "index_members_on_credit_union_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +66,6 @@ ActiveRecord::Schema.define(version: 20180215084038) do
   end
 
   add_foreign_key "branches", "credit_unions"
+  add_foreign_key "members", "branches"
+  add_foreign_key "members", "credit_unions"
 end

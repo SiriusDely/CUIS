@@ -16,6 +16,11 @@
       <%= @user.email %>
       </p>
 
+      <p>
+      <strong>Roles:</strong>
+      <%= @user.roles.map(&:to_s).map(&:humanize).join(" | ") %>
+      </p>
+
     </div>
     <div class="button-group">
       <%= link_to '<< Back', users_path, class: "button secondary" %>

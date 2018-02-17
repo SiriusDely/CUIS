@@ -3,4 +3,5 @@ class CreditUnion < ApplicationRecord
   validates :short_name, presence: true, uniqueness: { case_sensitive: false }
 
   has_many :branches, dependent: :destroy
+  has_many :members, dependent: :destroy
 end

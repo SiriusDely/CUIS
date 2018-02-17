@@ -20,7 +20,12 @@
           </ul>
         </li>
         <li>
-          <a href="#">Members</a>
+          <%= link_to "Members", members_path %>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "New Member", new_member_path %>
+            </li>
+          </ul>
         </li>
         <li><a href="#">Savings</a></li>
         <li><a href="#">Checkings</a></li>

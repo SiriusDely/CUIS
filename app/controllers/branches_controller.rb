@@ -22,7 +22,6 @@ class BranchesController < ApplicationController
 
   # GET /branches/1/edit
   def edit
-    @branch = Branch.find params[:id]
     @credit_unions = CreditUnion.all
   end
 

@@ -1,0 +1,46 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+
+
+    <h3>Members</h3>
+
+    <br/>
+
+    <table class="hover">
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Birth date</th>
+          <th>Birth place</th>
+          <th>Branch</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <td><%= member.first_name %></td>
+            <td><%= member.last_name %></td>
+            <td><%= member.birth_date %></td>
+            <td><%= member.birth_place %></td>
+            <td><%= member.branch.short_name %></td>
+            <td>
+              <div class="button-group">
+                <%= link_to 'Show', member, class: "button" %>
+                <%= link_to 'Edit', edit_member_path(member), class: "button warning" %>
+                <%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Member', new_member_path %>
+
+  </div>
+</div>
