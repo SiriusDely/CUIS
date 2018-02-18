@@ -1,0 +1,38 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+
+    <h3>Saving Product</h3>
+
+    <br/>
+
+    <div class="callout">
+
+      <p>
+      <strong>Full name:</strong>
+      <%= @saving_product.full_name %>
+      </p>
+
+      <p>
+      <strong>Short name:</strong>
+      <%= @saving_product.short_name %>
+      </p>
+
+      <p>
+      <strong>Interest rate:</strong>
+      <%= @saving_product.interest_rate %>
+      </p>
+
+      <p>
+      <strong>Credit union:</strong>
+      <%= @saving_product.credit_union.short_name %>
+      </p>
+
+    </div>
+
+    <div class="button-group">
+    <%= link_to '<< Back', saving_products_path, class: "button secondary" %>
+    <%= link_to 'Edit', edit_saving_product_path(@saving_product), class: "button warning" %>
+    </div>
+
+  </div>
+</div>

@@ -27,10 +27,37 @@
             </li>
           </ul>
         </li>
-        <li><a href="#">Savings</a></li>
-        <li><a href="#">Checkings</a></li>
-        <li><a href="#">Deposits</a></li>
-        <li><a href="#">Loans</a></li>
+        <li>
+          <a href="#">Products</a>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "Share Products", saving_products_path %>
+            </li>
+            <li>
+              <%= link_to "New Share Product", new_saving_product_path %>
+            </li>
+            <li>
+              <%= link_to "Saving Products", saving_products_path %>
+            </li>
+            <li>
+              <%= link_to "New Saving Product", new_saving_product_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Accounts</a>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "Savings", saving_products_path %>
+            </li>
+            <li>
+              <%= link_to "New Saving", new_saving_product_path %>
+            </li>
+            <li><a href="#">Checkings</a></li>
+            <li><a href="#">Deposits</a></li>
+            <li><a href="#">Loans</a></li>
+          </ul>
+        </li>
       <% end %>
     </ul>
   </div>

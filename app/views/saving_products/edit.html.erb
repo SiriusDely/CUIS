@@ -1,0 +1,14 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+
+    <h3>Editing Saving Product</h3>
+
+    <%= render 'form', saving_product: @saving_product %>
+
+    <div class="button-group">
+      <%= link_to '<< Back', saving_products_path, class: "button secondary" %>
+      <%= link_to 'Show', @saving_product, class: "button" %>
+    </div>
+
+  </div>
+</div>
