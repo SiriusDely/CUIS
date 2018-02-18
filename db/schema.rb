@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218034252) do
+ActiveRecord::Schema.define(version: 20180218064520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20180218034252) do
     t.datetime "updated_at", null: false
     t.index ["branch_id"], name: "index_members_on_branch_id"
     t.index ["credit_union_id"], name: "index_members_on_credit_union_id"
+  end
+
+  create_table "saving_accounts", force: :cascade do |t|
+    t.string "number"
+    t.float "interest_rate"
+    t.bigint "saving_product_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_saving_accounts_on_member_id"
+    t.index ["saving_product_id"], name: "index_saving_accounts_on_saving_product_id"
   end
 
   create_table "saving_products", force: :cascade do |t|
@@ -78,5 +89,7 @@ ActiveRecord::Schema.define(version: 20180218034252) do
   add_foreign_key "branches", "credit_unions"
   add_foreign_key "members", "branches"
   add_foreign_key "members", "credit_unions"
+  add_foreign_key "saving_accounts", "members"
+  add_foreign_key "saving_accounts", "saving_products"
   add_foreign_key "saving_products", "credit_unions"
 end

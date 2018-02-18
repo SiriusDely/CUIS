@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   resources :branches
   resources :members
   resources :saving_products
+  resources :saving_accounts
 
  end
