@@ -5,17 +5,19 @@
 # below each fixture, per the syntax in the comments below
 #
 admin:
-  # username: admin
+  username: admin
   email: admin@cuis.coop
   roles_mask: 1
 
 manager:
-  # username: manager
+  username: manager
   email: manager@cuis.coop
 
 one:
   username: oneone
   email: oneone@cuis.coop
+  first_name: "One"
+  last_name: "One"
 
 <% 1000.times do |n| %>
 # member_<%= n %>:

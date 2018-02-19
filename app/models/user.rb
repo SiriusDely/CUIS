@@ -15,6 +15,7 @@ class User < ApplicationRecord
   # Only allow letter, number, underscore and punctuation.
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
+  validates_presence_of :first_name, :last_name
 
   def email_required?
     false

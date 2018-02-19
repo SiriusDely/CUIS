@@ -1,12 +1,12 @@
 class CreateSavingAccounts < ActiveRecord::Migration[5.1]
   def change
     create_table :saving_accounts do |t|
-      t.string :number
-      t.float :interest_rate
-      t.references :saving_product, foreign_key: true
-      t.belongs_to :member, foreign_key: true
+      t.string :number,             null: false, default: ""
+      t.float :interest_rate,       null: false, default: 0
+      t.references :saving_product, foreign_key: true, null: false
+      t.belongs_to :member,         foreign_key: true, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
