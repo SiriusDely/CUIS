@@ -35,6 +35,8 @@ gem 'foundation-rails', '~> 6.0' # required
 # gem 'foundation_rails_helper', '~> 3.0'
 gem 'cancancan', '~> 2.0'
 
+gem 'jquery-datatables-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

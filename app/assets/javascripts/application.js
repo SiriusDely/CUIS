@@ -12,13 +12,15 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require turbolinks
 //= require foundation
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.foundation
+//= require turbolinks
 //= require_tree .
 
 // $(function(){ $(document).foundation(); });
 // $(document).foundation();
 
 $(document).on('turbolinks:load', function() {
-    $(function(){ $(document).foundation(); });
+  $(function(){ $(document).foundation(); });
 });
