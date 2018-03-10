@@ -1,0 +1,42 @@
+<%= form_with(model: saving_statement, local: true) do |form| %>
+  <% if saving_statement.errors.any? %>
+    <div id="error_explanation" class="callout alert">
+      <h5><%= pluralize(saving_statement.errors.count, "error") %> prohibited this saving_statement from being saved:</h5>
+
+      <ul>
+      <% saving_statement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :saving_account_id %>
+    <%= form.collection_select :saving_account_id, @saving_accounts, :id, :number, {include_blank: true}, id: :saving_account_saving_account_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :saving_statement_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_debit %>
+    <%= form.check_box :is_debit, id: :saving_statement_is_debit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_mask %>
+    <%= form.text_field :type_mask, id: :saving_statement_type_mask %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_field :note, id: :saving_statement_note %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button expanded" %>
+  </div>
+<% end %>

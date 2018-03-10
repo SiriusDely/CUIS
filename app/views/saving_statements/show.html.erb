@@ -1,0 +1,42 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+
+    <h3>Saving Statement</h3>
+
+    <br/>
+
+    <div class="callout">
+      <p>
+      <strong>Saving Account:</strong>
+      <%= @saving_statement.saving_account.number %>
+      </p>
+
+      <p>
+      <strong>Amount:</strong>
+      <%= @saving_statement.amount%>
+      </p>
+
+      <p>
+      <strong>Is Debit:</strong>
+      <%= @saving_statement.is_debit %>
+      </p>
+
+      <p>
+      <strong>Type Mask:</strong>
+      <%= @saving_statement.type_mask %>
+      </p>
+
+      <p>
+      <strong>Note:</strong>
+      <%= @saving_statement.note %>
+      </p>
+
+    </div>
+
+    <div class="button-group">
+      <%= link_to '<< Back', saving_statements_path, class: "button secondary" %>
+      <%= link_to 'Edit', edit_saving_statement_path(@saving_statement), class: "button warning" %>
+    </div>
+
+  </div>
+</div>

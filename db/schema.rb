@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218064520) do
+ActiveRecord::Schema.define(version: 20180304102410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,19 @@ ActiveRecord::Schema.define(version: 20180218064520) do
     t.index ["credit_union_id"], name: "index_saving_products_on_credit_union_id"
   end
 
+  create_table "saving_statements", force: :cascade do |t|
+    t.bigint "saving_account_id", null: false
+    t.decimal "amount", default: "0.0", null: false
+    t.boolean "is_debit", default: false, null: false
+    t.string "type_mask", default: "0", null: false
+    t.string "note", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["is_debit"], name: "index_saving_statements_on_is_debit"
+    t.index ["saving_account_id"], name: "index_saving_statements_on_saving_account_id"
+    t.index ["type_mask"], name: "index_saving_statements_on_type_mask"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
@@ -95,4 +108,5 @@ ActiveRecord::Schema.define(version: 20180218064520) do
   add_foreign_key "saving_accounts", "members"
   add_foreign_key "saving_accounts", "saving_products"
   add_foreign_key "saving_products", "credit_unions"
+  add_foreign_key "saving_statements", "saving_accounts"
 end
