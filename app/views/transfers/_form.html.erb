@@ -1,0 +1,27 @@
+<%= form_with(model: transfer, local: true) do |form| %>
+  <% if transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% transfer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :happened_at %>
+    <%= form.datetime_select :happened_at, id: :transfer_happened_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transferable_id %>
+    <%= form.text_field :transferable_id, id: :transfer_transferable_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button expanded"%>
+  </div>
+<% end %>

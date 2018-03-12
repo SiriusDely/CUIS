@@ -1,0 +1,46 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+
+    <h3>Account</h3>
+
+    <br/>
+
+    <div class="callout">
+      <p>
+      <strong>Code:</strong>
+      <%= @account.code %>
+      </p>
+
+      <p>
+      <strong>Type Mask:</strong>
+      <%= @account.type_mask %>
+      </p>
+
+      <p>
+      <strong>Full Name:</strong>
+      <%= @account.full_name %>
+      </p>
+
+      <p>
+      <strong>Short Name:</strong>
+      <%= @account.short_name %>
+      </p>
+
+      <p>
+      <strong>Balance:</strong>
+      <%= @account.balance %>
+      </p>
+
+      <p>
+      <strong>Is Positive:</strong>
+      <%= @account.is_positive %>
+      </p>
+    </div>
+
+    <div class="button-group">
+      <%= link_to '<< Back', accounts_path, class: "button secondary" %>
+      <%= link_to 'Edit', edit_account_path(@account), class: "button warning" %>
+    </div>
+
+  </div>
+</div>

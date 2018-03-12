@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  happened_at: 2018-03-10 20:51:04
+  # transferable: one
+  # transferable_type: Transferable
+
+two:
+  happened_at: 2018-03-10 20:51:04
+  # transferable: two
+  # transferable_type: Transferable

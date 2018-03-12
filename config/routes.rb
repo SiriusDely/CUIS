@@ -26,5 +26,9 @@ Rails.application.routes.draw do
   resources :saving_products
   resources :saving_accounts
   resources :saving_statements
+  resources :accounts
+  # resources :transactions, controller: "transfers"
+  # resources :transfers, path: "transactions", as: "transactions"
+  resources :transfers, path: "transactions"
 
  end

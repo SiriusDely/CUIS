@@ -4,7 +4,7 @@ class CreateSavingStatements < ActiveRecord::Migration[5.1]
       t.belongs_to :saving_account, foreign_key: true, null: false
       t.decimal :amount,            null: false, default: 0
       t.boolean :is_debit,          null: false, default: false
-      t.string :type_mask,          null: false, default: 0
+      t.integer :type_mask,         null: false, default: 0
       t.string :note,               null: true, default: ""
 
       t.timestamps

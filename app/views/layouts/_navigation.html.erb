@@ -45,7 +45,7 @@
           </ul>
         </li>
         <li>
-          <a href="#">Accounts</a>
+          <a>Accounts</a>
           <ul class="menu vertical">
             <li>
               <%= link_to "Savings", saving_accounts_path %>
@@ -59,7 +59,7 @@
           </ul>
         </li>
         <li>
-          <a href="#">Statements</a>
+          <a>Statements</a>
           <ul class="menu vertical">
             <li>
               <%= link_to "Saving Statements", saving_statements_path %>
@@ -78,6 +78,20 @@
   <div class="top-bar-right">
     <ul class="dropdown menu" data-dropdown-menu>
       <% if user_signed_in? %>
+        <li>
+          <%= link_to "Accounts", accounts_path %>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "New Account", new_account_path %>
+            </li>
+            <li>
+              <%= link_to "Transactions", transfers_path %>
+            </li>
+            <li>
+              <%= link_to "New Transaction", new_transfer_path %>
+            </li>
+          </ul>
+        </li>
         <li>
           <%= link_to "Users", users_path %>
           <ul class="menu vertical">
