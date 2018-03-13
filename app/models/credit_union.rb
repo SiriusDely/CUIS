@@ -4,5 +4,6 @@ class CreditUnion < ApplicationRecord
 
   has_many :branches, dependent: :destroy
   has_many :members, dependent: :destroy
+  has_one  :share_product, dependent: :destroy
   has_many :saving_products, dependent: :destroy
 end

@@ -1,7 +1,7 @@
 <%= form_with(model: account, local: true) do |form| %>
   <% if account.errors.any? %>
     <div id="error_explanation" class="callout alert">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+      <h5><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h5>
 
       <ul>
       <% account.errors.full_messages.each do |message| %>

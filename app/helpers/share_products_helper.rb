@@ -1,0 +1,2 @@
+module ShareProductsHelper
+end

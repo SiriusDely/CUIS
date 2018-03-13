@@ -1,0 +1,52 @@
+<%= form_with(model: share_account, local: true) do |form| %>
+  <% if share_account.errors.any? %>
+    <div id="error_explanation" class="callout alert">
+      <h5><%= pluralize(share_account.errors.count, "error") %> prohibited this share_account from being saved:</h5>
+
+      <ul>
+      <% share_account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :share_account_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :compulsory_deposit %>
+    <%= form.text_field :compulsory_deposit, id: :share_account_compulsory_deposit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :compulsory_balance %>
+    <%= form.text_field :compulsory_balance, id: :share_account_compulsory_balance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :voluntary_balance %>
+    <%= form.text_field :voluntary_balance, id: :share_account_voluntary_balance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_balance %>
+    <%= form.text_field :total_balance, id: :share_account_total_balance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :share_product_id %>
+    <%= form.collection_select :share_product_id, @share_products, :id, :short_name, {include_blank: true}, id: :share_account_share_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :member_id %>
+    <%= form.collection_select :member_id, @members, :id, :first_name, {include_blank: true}, id: :share_account_member_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button expanded" %>
+  </div>
+<% end %>

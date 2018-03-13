@@ -1,0 +1,37 @@
+<%= form_with(model: share_product, local: true) do |form| %>
+  <% if share_product.errors.any? %>
+    <div id="error_explanation" class="callout alert">
+      <h5><%= pluralize(share_product.errors.count, "error") %> prohibited this share_product from being saved:</h5>
+
+      <ul>
+      <% share_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, id: :share_product_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_name %>
+    <%= form.text_field :short_name, id: :share_product_short_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :primary_deposit %>
+    <%= form.text_field :primary_deposit, id: :share_product_primary_deposit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_union_id %>
+    <%= form.collection_select :credit_union_id, @credit_unions, :id, :short_name, {include_blank: true}, id: :saving_product_credit_union_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button expanded" %>
+  </div>
+<% end %>

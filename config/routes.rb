@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :users
   resources :branches
   resources :members
+  resources :share_products
+  resources :share_accounts
   resources :saving_products
   resources :saving_accounts
   resources :saving_statements

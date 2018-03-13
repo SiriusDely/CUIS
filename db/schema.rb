@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310143656) do
+ActiveRecord::Schema.define(version: 20180313222601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,30 @@ ActiveRecord::Schema.define(version: 20180310143656) do
     t.index ["type_mask"], name: "index_saving_statements_on_type_mask"
   end
 
+  create_table "share_accounts", force: :cascade do |t|
+    t.string "number", default: "", null: false
+    t.decimal "compulsory_deposit", default: "0.0", null: false
+    t.decimal "compulsory_balance", default: "0.0", null: false
+    t.decimal "voluntary_balance", default: "0.0", null: false
+    t.decimal "total_balance", default: "0.0", null: false
+    t.bigint "share_product_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_share_accounts_on_member_id"
+    t.index ["share_product_id"], name: "index_share_accounts_on_share_product_id"
+  end
+
+  create_table "share_products", force: :cascade do |t|
+    t.string "full_name", default: "", null: false
+    t.string "short_name", default: "", null: false
+    t.decimal "primary_deposit", default: "0.0", null: false
+    t.bigint "credit_union_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_union_id"], name: "index_share_products_on_credit_union_id"
+  end
+
   create_table "transfers", force: :cascade do |t|
     t.datetime "happened_at", null: false
     t.string "transferable_type"
@@ -146,4 +170,7 @@ ActiveRecord::Schema.define(version: 20180310143656) do
   add_foreign_key "saving_accounts", "saving_products"
   add_foreign_key "saving_products", "credit_unions"
   add_foreign_key "saving_statements", "saving_accounts"
+  add_foreign_key "share_accounts", "members"
+  add_foreign_key "share_accounts", "share_products"
+  add_foreign_key "share_products", "credit_unions"
 end

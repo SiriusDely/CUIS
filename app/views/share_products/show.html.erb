@@ -1,0 +1,38 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+
+    <h3>Share Product</h3>
+
+    <br/>
+
+    <div class="callout">
+
+      <p>
+      <strong>Full Name:</strong>
+      <%= @share_product.full_name %>
+      </p>
+
+      <p>
+      <strong>Short Name:</strong>
+      <%= @share_product.short_name %>
+      </p>
+
+      <p>
+      <strong>Primary Deposit:</strong>
+      <%= @share_product.primary_deposit %>
+      </p>
+
+      <p>
+      <strong>Credit Union:</strong>
+      <%= @share_product.credit_union.short_name %>
+      </p>
+
+    </div>
+
+    <div class="button-group">
+      <%= link_to '<< Back', share_products_path, class: "button secondary" %>
+      <%= link_to 'Edit', edit_share_product_path(@share_product), class: "button warning" %>
+    </div>
+
+  </div>
+</div>

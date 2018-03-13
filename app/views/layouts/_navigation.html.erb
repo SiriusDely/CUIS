@@ -31,10 +31,10 @@
           <a href="#">Products</a>
           <ul class="menu vertical">
             <li>
-              <%= link_to "Share Products", saving_products_path %>
+              <%= link_to "Share Products", share_products_path %>
             </li>
             <li>
-              <%= link_to "New Share Product", new_saving_product_path %>
+              <%= link_to "New Share Product", new_share_product_path %>
             </li>
             <li>
               <%= link_to "Saving Products", saving_products_path %>
@@ -47,6 +47,12 @@
         <li>
           <a>Accounts</a>
           <ul class="menu vertical">
+            <li>
+              <%= link_to "Shares", share_accounts_path %>
+            </li>
+            <li>
+              <%= link_to "New Share", new_share_account_path %>
+            </li>
             <li>
               <%= link_to "Savings", saving_accounts_path %>
             </li>
