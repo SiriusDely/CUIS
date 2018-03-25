@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  share_account: one
+  is_debit: false
+  amount: 9.99
+  balance_type_mask: 1
+  type_mask: 1
+  note: MyString
+
+two:
+  share_account: two
+  is_debit: false
+  amount: 9.99
+  balance_type_mask: 1
+  type_mask: 1
+  note: MyString

@@ -1,0 +1,47 @@
+<div class="grid-x grid-padding-x">
+  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+
+    <h3>Share Statements</h3>
+
+    <br/>
+
+    <table class="hover">
+      <thead>
+        <tr>
+          <th>Share Account</th>
+          <th>Is Debit</th>
+          <th>Amount</th>
+          <th>Balance Type Mask</th>
+          <th>Type Mask</th>
+          <th>Note</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @share_statements.each do |share_statement| %>
+          <tr>
+            <td><%= share_statement.share_account.number %></td>
+            <td><%= share_statement.is_debit %></td>
+            <td><%= share_statement.amount %></td>
+            <td><%= share_statement.balance_type_mask %></td>
+            <td><%= share_statement.type_mask %></td>
+            <td><%= share_statement.note %></td>
+            <td>
+              <div class="button-group">
+                <%= link_to 'Show', share_statement, class: "button" %>
+                <%= link_to 'Edit', edit_share_statement_path(share_statement), class: "button warning" %>
+                <%= link_to 'Destroy', share_statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Share Statement', new_share_statement_path, class: "button secondary" %>
+
+  </div>
+</div>

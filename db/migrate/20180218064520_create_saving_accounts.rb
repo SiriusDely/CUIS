@@ -8,5 +8,7 @@ class CreateSavingAccounts < ActiveRecord::Migration[5.1]
 
       t.timestamps null: false
     end
+
+    add_index :saving_accounts, :number,    unique: true
   end
 end

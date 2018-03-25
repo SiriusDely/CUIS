@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313222601) do
+ActiveRecord::Schema.define(version: 20180321224722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,21 @@ ActiveRecord::Schema.define(version: 20180313222601) do
     t.index ["credit_union_id"], name: "index_share_products_on_credit_union_id"
   end
 
+  create_table "share_statements", force: :cascade do |t|
+    t.bigint "share_account_id", null: false
+    t.boolean "is_debit", default: false, null: false
+    t.decimal "amount", default: "0.0", null: false
+    t.integer "balance_type_mask", default: 0, null: false
+    t.integer "type_mask", default: 0, null: false
+    t.string "note", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["balance_type_mask"], name: "index_share_statements_on_balance_type_mask"
+    t.index ["is_debit"], name: "index_share_statements_on_is_debit"
+    t.index ["share_account_id"], name: "index_share_statements_on_share_account_id"
+    t.index ["type_mask"], name: "index_share_statements_on_type_mask"
+  end
+
   create_table "transfers", force: :cascade do |t|
     t.datetime "happened_at", null: false
     t.string "transferable_type"
@@ -173,4 +188,5 @@ ActiveRecord::Schema.define(version: 20180313222601) do
   add_foreign_key "share_accounts", "members"
   add_foreign_key "share_accounts", "share_products"
   add_foreign_key "share_products", "credit_unions"
+  add_foreign_key "share_statements", "share_accounts"
 end

@@ -1,0 +1,7 @@
+require 'test_helper'
+
+class ShareStatementTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

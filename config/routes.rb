@@ -14,23 +14,23 @@ Rails.application.routes.draw do
   #   sessions: "users/sessions",
   #   registrations: "users/registrations"
   # }
-
-  resources :credit_unions
   # devise_scope :user do
   #   resources :users, controller: "users/registrations"
   #   get "users/new", to: "users#new"
   # end
   resources :users
+  resources :credit_unions
   resources :branches
   resources :members
-  resources :share_products
-  resources :share_accounts
-  resources :saving_products
-  resources :saving_accounts
-  resources :saving_statements
   resources :accounts
   # resources :transactions, controller: "transfers"
   # resources :transfers, path: "transactions", as: "transactions"
   resources :transfers, path: "transactions"
+  resources :share_products
+  resources :share_accounts
+  resources :share_statements
+  resources :saving_products
+  resources :saving_accounts
+  resources :saving_statements
 
  end
