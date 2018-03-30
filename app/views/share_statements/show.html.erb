@@ -13,7 +13,7 @@
 
       <p>
       <strong>Is Debit:</strong>
-      <%= @share_statement.is_debit %>
+      <%= @share_statement.is_debit.to_s.humanize %>
       </p>
 
       <p>
@@ -22,13 +22,13 @@
       </p>
 
       <p>
-      <strong>Balance Type Mask:</strong>
-      <%= @share_statement.balance_type_mask %>
+      <strong>Balance Type:</strong>
+      <%= @share_statement.balance_type.to_s.humanize %>
       </p>
 
       <p>
-      <strong>Type Mask:</strong>
-      <%= @share_statement.type_mask %>
+      <strong>Statement Type:</strong>
+      <%= @share_statement.statement_type.to_s.humanize.capitalize %>
       </p>
 
       <p>

@@ -75,6 +75,6 @@ class ShareStatementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_statement_params
-      params.require(:share_statement).permit(:share_account_id, :is_debit, :amount, :balance_type_mask, :type_mask, :note)
+      params.require(:share_statement).permit(:share_account_id, :is_debit, :amount, :balance_type, :statement_type, :note)
     end
 end

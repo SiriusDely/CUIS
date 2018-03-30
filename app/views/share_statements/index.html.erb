@@ -9,10 +9,10 @@
       <thead>
         <tr>
           <th>Share Account</th>
-          <th>Is Debit</th>
+          <th>Debit/Credit</th>
           <th>Amount</th>
-          <th>Balance Type Mask</th>
-          <th>Type Mask</th>
+          <th>Balance Type</th>
+          <th>Statement Type</th>
           <th>Note</th>
           <th></th>
         </tr>
@@ -22,10 +22,10 @@
         <% @share_statements.each do |share_statement| %>
           <tr>
             <td><%= share_statement.share_account.number %></td>
-            <td><%= share_statement.is_debit %></td>
+            <td><%= share_statement.is_debit ? "Debit" : "Credit" %></td>
             <td><%= share_statement.amount %></td>
-            <td><%= share_statement.balance_type_mask %></td>
-            <td><%= share_statement.type_mask %></td>
+            <td><%= share_statement.balance_type.to_s.humanize %></td>
+            <td><%= share_statement.statement_type.to_s.humanize %></td>
             <td><%= share_statement.note %></td>
             <td>
               <div class="button-group">

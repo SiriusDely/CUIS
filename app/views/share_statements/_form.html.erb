@@ -27,13 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :balance_type_mask %>
-    <%= form.number_field :balance_type_mask, id: :share_statement_balance_type_mask %>
+    <%= form.label :balance_type %>
+    <%= form.select :balance_type, ShareStatement::BALANCE_TYPES.map {|bt| [bt.to_s.humanize, bt.to_s]}, {include_blank: true}, id: :share_statement_balance_type %>
   </div>
 
   <div class="field">
-    <%= form.label :type_mask %>
-    <%= form.number_field :type_mask, id: :share_statement_type_mask %>
+    <%= form.label :statement_type %>
+    <%= form.select :statement_type, ShareStatement::STATEMENT_TYPES.map {|bt| [bt.to_s.humanize, bt.to_s]}, {include_blank: true}, id: :share_statement_statement_type %>
   </div>
 
   <div class="field">
