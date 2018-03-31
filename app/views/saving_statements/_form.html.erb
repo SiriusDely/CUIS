@@ -17,18 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount, id: :saving_statement_amount %>
-  </div>
-
-  <div class="field">
     <%= form.label :is_debit %>
     <%= form.check_box :is_debit, id: :saving_statement_is_debit %>
   </div>
 
   <div class="field">
-    <%= form.label :type_mask %>
-    <%= form.text_field :type_mask, id: :saving_statement_type_mask %>
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :saving_statement_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :statement_type %>
+    <%= form.select :statement_type, SavingStatement::STATEMENT_TYPES.map {|bt| [bt.to_s.humanize, bt.to_s]}, {include_blank: true}, id: :saving_statement_statement_type %>
   </div>
 
   <div class="field">

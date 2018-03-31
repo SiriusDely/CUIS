@@ -75,6 +75,6 @@ class SavingStatementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def saving_statement_params
-      params.require(:saving_statement).permit(:amount, :type_mask, :note, :saving_account_id, :is_debit)
+      params.require(:saving_statement).permit(:amount, :statement_type, :note, :saving_account_id, :is_debit)
     end
 end

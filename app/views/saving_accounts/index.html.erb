@@ -9,8 +9,9 @@
       <thead>
         <tr>
           <th width=100>Number</th>
-          <th width=150>Interest rate</th>
-          <th width=150>Saving product</th>
+          <th width=150>Balance</th>
+          <th width=150>Interest Rate</th>
+          <th width=150>Saving Product</th>
           <th width=150>Member</th>
           <th width=100></th>
         </tr>
@@ -20,6 +21,7 @@
         <% @saving_accounts.each do |saving_account| %>
           <tr>
             <td><%= saving_account.number %></td>
+            <td><%= saving_account.balance %></td>
             <td><%= saving_account.interest_rate %></td>
             <td><%= saving_account.saving_product.short_name %></td>
             <td><%= saving_account.member.first_name %></td>

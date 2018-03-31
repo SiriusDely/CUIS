@@ -20,6 +20,8 @@ compulsory_deposit_account = Account.create({ code: 501, account_type: :equity, 
 
 facultative_deposit_account = Account.create({ code: 401, account_type: :liabilities, full_name: "Simpanan Pokok", short_name: "SP" })
 
+daily_interest_saving_account = Account.create({ code: 400, account_type: :liabilities, full_name: "Simpanan Bunga Harian", short_name: "SBH" })
+
 member = Member.create({ first_name: "Sirius", last_name: "Dely", birth_place: "Bukittinggi", birth_date: "1984-02-19", credit_union: cu, branch: branch })
 
 share_product = ShareProduct.create({ full_name: "Tabungan Saham Khusus Anggota", short_name: "TASKA", primary_deposit: 200000, credit_union: cu })

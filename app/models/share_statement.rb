@@ -50,7 +50,7 @@ class ShareStatement < ApplicationRecord
         self.share_account.facultative_balance
       end
 
-    self.after = self.before + self.amount
+    self.after = self.before + (self.is_debit ? self.amount : -self.amount)
   end
 
   def update_account_balance
@@ -79,6 +79,7 @@ class ShareStatement < ApplicationRecord
         Account.find_by_code(401)
       end
 
-    transfer.allotments.build({ account: deposit_account, is_debit: self.is_debit, amount: self.amount, before: deposit_account.balance, after: deposit_account.balance + amount, transfer: transfer })
+    transfer.allotments.build({ account: deposit_account, is_debit: self.is_debit, amount: self.amount, before: deposit_account.balance, after: deposit_account.balance + (self.is_debit ? self.amount : -self.amount), transfer: transfer })
   end
+
 end

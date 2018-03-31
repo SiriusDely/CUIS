@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180321224722) do
 
   create_table "saving_accounts", force: :cascade do |t|
     t.string "number", default: "", null: false
+    t.decimal "balance", default: "0.0", null: false
     t.float "interest_rate", default: 0.0, null: false
     t.bigint "saving_product_id", null: false
     t.bigint "member_id", null: false
@@ -95,8 +96,10 @@ ActiveRecord::Schema.define(version: 20180321224722) do
 
   create_table "saving_statements", force: :cascade do |t|
     t.bigint "saving_account_id", null: false
-    t.decimal "amount", default: "0.0", null: false
     t.boolean "is_debit", default: false, null: false
+    t.decimal "amount", default: "0.0", null: false
+    t.decimal "before", default: "0.0", null: false
+    t.decimal "after", default: "0.0", null: false
     t.integer "type_mask", default: 0, null: false
     t.string "note", default: ""
     t.datetime "created_at", null: false
