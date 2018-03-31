@@ -21,7 +21,7 @@ class SavingAccountsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create saving_account" do
     assert_difference('SavingAccount.count') do
-      post saving_accounts_url, params: { saving_account: { interest_rate: @saving_account.interest_rate, member_id: @saving_account.member_id, number: @saving_account.number, saving_product_id: @saving_account.saving_product_id } }
+      post saving_accounts_url, params: { saving_account: { interest_rate: @saving_account.interest_rate, member_id: @saving_account.member_id, number: "@saving_account.number", saving_product_id: @saving_account.saving_product_id } }
     end
 
     assert_redirected_to saving_account_url(SavingAccount.last)

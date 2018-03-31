@@ -12,9 +12,15 @@ cu = CreditUnion.create({ full_name: "Koperasi Kredit Melania", short_name: "Mel
 
 branch = Branch.create({ full_name: "Kantor Cabang Sukaluyu", short_name: "Sukaluyu", credit_union: cu })
 
+cash_account = Account.create({ code: 100, account_type: :assets, full_name: "Simpanan Pokok", short_name: "SP" })
+
 primary_deposit_account = Account.create({ code: 500, account_type: :equity, full_name: "Simpanan Pokok", short_name: "SP" })
 
-member = Member.create({ first_name: "Sirius", last_name: "Dely", birth_place: "Bukittingi", birth_date: "1984-02-19", credit_union: cu, branch: branch })
+compulsory_deposit_account = Account.create({ code: 501, account_type: :equity, full_name: "Simpanan Pokok", short_name: "SP" })
+
+facultative_deposit_account = Account.create({ code: 401, account_type: :liabilities, full_name: "Simpanan Pokok", short_name: "SP" })
+
+member = Member.create({ first_name: "Sirius", last_name: "Dely", birth_place: "Bukittinggi", birth_date: "1984-02-19", credit_union: cu, branch: branch })
 
 share_product = ShareProduct.create({ full_name: "Tabungan Saham Khusus Anggota", short_name: "TASKA", primary_deposit: 200000, credit_union: cu })
 

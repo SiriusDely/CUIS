@@ -21,7 +21,7 @@ class ShareAccountsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create share_account" do
     assert_difference('ShareAccount.count') do
-      post share_accounts_url, params: { share_account: { compulsory_balance: @share_account.compulsory_balance, primary_balance: @share_account.primary_balance, member_id: @share_account.member_id, number: @share_account.number, share_product_id: @share_account.share_product_id, total_balance: @share_account.total_balance, voluntary_balance: @share_account.voluntary_balance } }
+      post share_accounts_url, params: { share_account: { compulsory_balance: @share_account.compulsory_balance, primary_balance: @share_account.primary_balance, member_id: @share_account.member_id, number: "@share_account.number", share_product_id: @share_account.share_product_id, total_balance: @share_account.total_balance, facultative_balance: @share_account.facultative_balance } }
     end
 
     assert_redirected_to share_account_url(ShareAccount.last)
@@ -38,7 +38,7 @@ class ShareAccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update share_account" do
-    patch share_account_url(@share_account), params: { share_account: { compulsory_balance: @share_account.compulsory_balance, primary_balance: @share_account.primary_balance, member_id: @share_account.member_id, number: @share_account.number, share_product_id: @share_account.share_product_id, total_balance: @share_account.total_balance, voluntary_balance: @share_account.voluntary_balance } }
+    patch share_account_url(@share_account), params: { share_account: { compulsory_balance: @share_account.compulsory_balance, primary_balance: @share_account.primary_balance, member_id: @share_account.member_id, number: @share_account.number, share_product_id: @share_account.share_product_id, total_balance: @share_account.total_balance, facultative_balance: @share_account.facultative_balance } }
     assert_redirected_to share_account_url(@share_account)
   end
 

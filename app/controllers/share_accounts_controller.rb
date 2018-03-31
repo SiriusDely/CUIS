@@ -78,6 +78,6 @@ class ShareAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_account_params
-      params.require(:share_account).permit(:number, :primary_balance, :compulsory_balance, :voluntary_balance, :total_balance, :share_product_id, :member_id)
+      params.require(:share_account).permit(:number, :share_product_id, :member_id)
     end
 end

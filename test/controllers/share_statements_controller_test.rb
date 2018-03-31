@@ -21,7 +21,7 @@ class ShareStatementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create share_statement" do
     assert_difference('ShareStatement.count') do
-      post share_statements_url, params: { share_statement: { amount: @share_statement.amount, balance_type_mask: @share_statement.balance_type_mask, is_debit: @share_statement.is_debit, note: @share_statement.note, share_account_id: @share_statement.share_account_id, type_mask: @share_statement.type_mask } }
+      post share_statements_url, params: { share_statement: { amount: @share_statement.amount, balance_type_mask: @share_statement.balance_type_mask, is_debit: @share_statement.is_debit, note: @share_statement.note, share_account_id: @share_statement.share_account_id, type_mask: @share_statement.type_mask, balance_type: :primary } }
     end
 
     assert_redirected_to share_statement_url(ShareStatement.last)

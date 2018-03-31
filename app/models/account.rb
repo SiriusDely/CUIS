@@ -1,7 +1,7 @@
 class Account < ApplicationRecord
   has_many :allotments, dependent: :destroy
   # attr_readonly :is_positive
-  attr_readonly :balance
+  # attr_readonly :balance
 
   TYPES = %i[assets liabilities equity income expenses]
 

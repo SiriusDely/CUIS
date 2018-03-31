@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: 1
+  code: 500
   type_mask: 1
   full_name: MyString
   short_name: MyString
@@ -9,7 +9,23 @@ one:
   is_positive: false
 
 two:
-  code: 1
+  code: 501
+  type_mask: 1
+  full_name: MyString
+  short_name: MyString
+  balance: 9.99
+  is_positive: false
+
+three:
+  code: 401
+  type_mask: 1
+  full_name: MyString
+  short_name: MyString
+  balance: 9.99
+  is_positive: false
+
+four:
+  code: 100
   type_mask: 1
   full_name: MyString
   short_name: MyString

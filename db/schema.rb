@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20180321224722) do
     t.string "number", default: "", null: false
     t.decimal "primary_balance", default: "0.0", null: false
     t.decimal "compulsory_balance", default: "0.0", null: false
-    t.decimal "voluntary_balance", default: "0.0", null: false
+    t.decimal "facultative_balance", default: "0.0", null: false
     t.decimal "total_balance", default: "0.0", null: false
     t.bigint "share_product_id", null: false
     t.bigint "member_id", null: false

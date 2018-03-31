@@ -4,16 +4,16 @@ one:
   number: MyString
   primary_balance: 9.99
   compulsory_balance: 9.99
-  voluntary_balance: 9.99
+  facultative_balance: 9.99
   total_balance: 9.99
   share_product: one
   member: one
 
 two:
-  number: MyString
+  number: MyString1
   primary_balance: 9.99
   compulsory_balance: 9.99
-  voluntary_balance: 9.99
+  facultative_balance: 9.99
   total_balance: 9.99
   share_product: two
   member: two

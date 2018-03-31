@@ -17,26 +17,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :primary_balance %>
-    <%= form.text_field :primary_balance, id: :share_account_primary_balance %>
-  </div>
-
-  <div class="field">
-    <%= form.label :compulsory_balance %>
-    <%= form.text_field :compulsory_balance, id: :share_account_compulsory_balance %>
-  </div>
-
-  <div class="field">
-    <%= form.label :voluntary_balance %>
-    <%= form.text_field :voluntary_balance, id: :share_account_voluntary_balance %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_balance %>
-    <%= form.text_field :total_balance, id: :share_account_total_balance %>
-  </div>
-
-  <div class="field">
     <%= form.label :share_product_id %>
     <%= form.collection_select :share_product_id, @share_products, :id, :short_name, {include_blank: true}, id: :share_account_share_product_id %>
   </div>
