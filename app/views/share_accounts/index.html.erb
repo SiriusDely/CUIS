@@ -9,7 +9,7 @@
       <thead>
         <tr>
           <th>Number</th>
-          <th>Compulsory Deposit</th>
+          <th>Primary Balance</th>
           <th>Compulsory Balance</th>
           <th>Voluntary Balance</th>
           <th>Total Balance</th>
@@ -23,7 +23,7 @@
         <% @share_accounts.each do |share_account| %>
           <tr>
             <td><%= share_account.number %></td>
-            <td><%= share_account.compulsory_deposit %></td>
+            <td><%= share_account.primary_balance %></td>
             <td><%= share_account.compulsory_balance %></td>
             <td><%= share_account.voluntary_balance %></td>
             <td><%= share_account.total_balance %></td>

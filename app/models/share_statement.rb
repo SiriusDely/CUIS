@@ -1,7 +1,7 @@
 class ShareStatement < ApplicationRecord
   belongs_to :share_account
 
-  BALANCE_TYPES = %i[ principal compulsory facultative]
+  BALANCE_TYPES = %i[ primary compulsory facultative]
 
   STATEMENT_TYPES = %i[ cash_deposit cash_withdrawal cash_installment_payment cash_loan_dilution
     bank_deposit bank_withdrawal bank_installment_payment bank_loan_dilution

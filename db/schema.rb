@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20180321224722) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_saving_accounts_on_member_id"
+    t.index ["number"], name: "index_saving_accounts_on_number", unique: true
     t.index ["saving_product_id"], name: "index_saving_accounts_on_saving_product_id"
   end
 
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180321224722) do
 
   create_table "share_accounts", force: :cascade do |t|
     t.string "number", default: "", null: false
-    t.decimal "compulsory_deposit", default: "0.0", null: false
+    t.decimal "primary_balance", default: "0.0", null: false
     t.decimal "compulsory_balance", default: "0.0", null: false
     t.decimal "voluntary_balance", default: "0.0", null: false
     t.decimal "total_balance", default: "0.0", null: false
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(version: 20180321224722) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_share_accounts_on_member_id"
+    t.index ["number"], name: "index_share_accounts_on_number", unique: true
     t.index ["share_product_id"], name: "index_share_accounts_on_share_product_id"
   end
 
@@ -133,6 +135,8 @@ ActiveRecord::Schema.define(version: 20180321224722) do
     t.bigint "share_account_id", null: false
     t.boolean "is_debit", default: false, null: false
     t.decimal "amount", default: "0.0", null: false
+    t.decimal "before", default: "0.0", null: false
+    t.decimal "after", default: "0.0", null: false
     t.integer "balance_type_mask", default: 0, null: false
     t.integer "type_mask", default: 0, null: false
     t.string "note", default: "", null: false
