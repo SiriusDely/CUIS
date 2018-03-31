@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :type_mask %>
-    <%= form.number_field :type_mask, id: :account_type_mask %>
+    <%= form.label :account_type %>
+    <%= form.select :account_type, Account::TYPES.map {|t| [t.to_s.humanize, t.to_s]}, {include_blank: true}, id: :account_account_type %>
   </div>
 
   <div class="field">
@@ -29,16 +29,6 @@
   <div class="field">
     <%= form.label :short_name %>
     <%= form.text_field :short_name, id: :account_short_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :balance %>
-    <%= form.text_field :balance, id: :account_balance %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_positive %>
-    <%= form.check_box :is_positive, id: :account_is_positive %>
   </div>
 
   <div class="actions">

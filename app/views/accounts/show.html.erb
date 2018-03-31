@@ -12,8 +12,8 @@
       </p>
 
       <p>
-      <strong>Type Mask:</strong>
-      <%= @account.type_mask %>
+      <strong>Type:</strong>
+      <%= @account.account_type.to_s.humanize %>
       </p>
 
       <p>
@@ -32,8 +32,8 @@
       </p>
 
       <p>
-      <strong>Is Positive:</strong>
-      <%= @account.is_positive %>
+      <strong>Sign:</strong>
+      <%= @account.is_positive ? "plus (+)" : "minus (-)" %>
       </p>
     </div>
 

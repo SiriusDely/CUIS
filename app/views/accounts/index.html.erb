@@ -9,11 +9,11 @@
       <thead>
         <tr>
           <th>Code</th>
-          <th>Type Mask</th>
+          <th>Type</th>
           <th>Full Name</th>
           <th>Short Name</th>
           <th>Balance</th>
-          <th>Is Positive</th>
+          <th>Sign</th>
           <th></th>
         </tr>
       </thead>
@@ -22,11 +22,11 @@
         <% @accounts.each do |account| %>
           <tr>
             <td><%= account.code %></td>
-            <td><%= account.type_mask %></td>
+            <td><%= account.account_type.to_s.humanize %></td>
             <td><%= account.full_name %></td>
             <td><%= account.short_name %></td>
             <td><%= account.balance %></td>
-            <td><%= account.is_positive %></td>
+            <td><%= account.is_positive ? "+" : "-" %></td>
             <td>
               <div class="button-group">
                 <%= link_to 'Show', account, class: "button" %>
