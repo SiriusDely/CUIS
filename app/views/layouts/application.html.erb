@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div>
+    <div data-sticky-container id="top-menu-container">
       <%= render "layouts/top_menu" %>
     </div>
 
@@ -30,12 +30,7 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x" id="content">
         <div class="cell medium-2" data-sticky-container>
-          <div class="sticky" data-sticky data-anchor="content">
-            <br>
-            <ul class="menu vertical accordion-menu" data-accordion-menu>
-              <%= render "layouts/left_menu" %>
-            </ul>
-          </div>
+          <%= render "layouts/left_menu" %>
         </div>
         <div class="cell medium-10">
           <br>

@@ -1,4 +1,4 @@
-<div class="top-bar">
+<div class="top-bar" data-sticky data-margin-top="0">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text">CUIS</li>
@@ -19,91 +19,12 @@
             </li>
           </ul>
         </li>
-        <li>
-          <%= link_to "Members", members_path %>
-          <ul class="menu vertical">
-            <li>
-              <%= link_to "New Member", new_member_path %>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a>Products</a>
-          <ul class="menu vertical">
-            <li>
-              <%= link_to "Share Products", share_products_path %>
-            </li>
-            <li>
-              <%= link_to "New Share Product", new_share_product_path %>
-            </li>
-            <li>
-              <%= link_to "Saving Products", saving_products_path %>
-            </li>
-            <li>
-              <%= link_to "New Saving Product", new_saving_product_path %>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a>Accounts</a>
-          <ul class="menu vertical">
-            <li>
-              <%= link_to "Shares", share_accounts_path %>
-            </li>
-            <li>
-              <%= link_to "New Share", new_share_account_path %>
-            </li>
-            <li>
-              <%= link_to "Savings", saving_accounts_path %>
-            </li>
-            <li>
-              <%= link_to "New Saving", new_saving_account_path %>
-            </li>
-            <li><a href="#">Checkings</a></li>
-            <li><a href="#">Deposits</a></li>
-            <li><a href="#">Loans</a></li>
-          </ul>
-        </li>
-        <li>
-          <a>Statements</a>
-          <ul class="menu vertical">
-            <li>
-              <%= link_to "Share Statements", share_statements_path %>
-            </li>
-            <li>
-              <%= link_to "New Share Statement", new_share_statement_path %>
-            </li>
-            <li>
-              <%= link_to "Saving Statements", saving_statements_path %>
-            </li>
-            <li>
-              <%= link_to "New Saving Statement", new_saving_statement_path %>
-            </li>
-            <li><a href="#">Checkings</a></li>
-            <li><a href="#">Deposits</a></li>
-            <li><a href="#">Loans</a></li>
-          </ul>
-        </li>
       <% end %>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="dropdown menu" data-dropdown-menu>
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "Accounts", accounts_path %>
-          <ul class="menu vertical">
-            <li>
-              <%= link_to "New Account", new_account_path %>
-            </li>
-            <li>
-              <%= link_to "Transactions", transfers_path %>
-            </li>
-            <li>
-              <%= link_to "New Transaction", new_transfer_path %>
-            </li>
-          </ul>
-        </li>
         <li>
           <%= link_to "Users", users_path %>
           <ul class="menu vertical">

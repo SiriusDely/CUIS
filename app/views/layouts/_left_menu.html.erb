@@ -1,54 +1,59 @@
-<li>
-  <a href="#">Shares</a>
-  <ul class="menu vertical nested">
+<br/>
+<div data-sticky data-margin-top="5">
+  <ul class="menu vertical accordion-menu" data-accordion-menu>
     <li>
-      <%= link_to "Share Accounts", share_accounts_path %>
+      <a href="#">Shares</a>
+      <ul class="menu vertical nested">
+        <li>
+          <%= link_to "Share Accounts", share_accounts_path %>
+        </li>
+        <li>
+          <%= link_to "New Share Account", new_share_account_path %>
+        </li>
+        <li>
+          <%= link_to "Share Statements", share_statements_path %>
+        </li>
+        <li>
+          <%= link_to "New Share Statement", new_share_statement_path %>
+        </li>
+      </ul>
     </li>
     <li>
-      <%= link_to "New Share Account", new_share_account_path %>
+      <a href="#">Savings</a>
+      <ul class="menu vertical nested">
+        <li>
+          <%= link_to "Saving Accounts", saving_accounts_path %>
+        </li>
+        <li>
+          <%= link_to "New Saving Account", new_saving_account_path %>
+        </li>
+        <li>
+          <%= link_to "Saving Statements", saving_statements_path %>
+        </li>
+        <li>
+          <%= link_to "New Saving Statement", new_saving_statement_path %>
+        </li>
+      </ul>
     </li>
+    <li><a href="#">Checkings</a></li>
+    <li><a href="#">Deposits</a></li>
+    <li><a href="#">Loans</a></li>
     <li>
-      <%= link_to "Share Statements", share_statements_path %>
-    </li>
-    <li>
-      <%= link_to "New Share Statement", new_share_statement_path %>
+      <a href="#">Accounting</a>
+      <ul class="menu vertical nested">
+        <li>
+          <%= link_to "Accounts", accounts_path %>
+        </li>
+        <li>
+          <%= link_to "New Account", new_account_path %>
+        </li>
+        <li>
+          <%= link_to "Transactions", transfers_path %>
+        </li>
+        <li>
+          <%= link_to "New Transaction", new_transfer_path %>
+        </li>
+      </ul>
     </li>
   </ul>
-</li>
-<li>
-  <a href="#">Savings</a>
-  <ul class="menu vertical nested">
-    <li>
-      <%= link_to "Saving Accounts", saving_accounts_path %>
-    </li>
-    <li>
-      <%= link_to "New Saving Account", new_saving_account_path %>
-    </li>
-    <li>
-      <%= link_to "Saving Statements", saving_statements_path %>
-    </li>
-    <li>
-      <%= link_to "New Saving Statement", new_saving_statement_path %>
-    </li>
-  </ul>
-</li>
-<li><a href="#">Checkings</a></li>
-<li><a href="#">Deposits</a></li>
-<li><a href="#">Loans</a></li>
-<li>
-  <a href="#">Accounting</a>
-  <ul class="menu vertical nested">
-    <li>
-      <%= link_to "Accounts", accounts_path %>
-    </li>
-    <li>
-      <%= link_to "New Account", new_account_path %>
-    </li>
-    <li>
-      <%= link_to "Transactions", transfers_path %>
-    </li>
-    <li>
-      <%= link_to "New Transaction", new_transfer_path %>
-    </li>
-  </ul>
-</li>
+</div>
