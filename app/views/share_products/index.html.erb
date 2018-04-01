@@ -1,43 +1,37 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+<h3>Share Products</h3>
 
-    <h3>Share Products</h3>
+<br/>
 
-    <br/>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Short Name</th>
+      <th>Primary Deposit</th>
+      <th>Credit Union</th>
+      <th></th>
+    </tr>
+  </thead>
 
-    <table class="hover">
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Short Name</th>
-          <th>Primary Deposit</th>
-          <th>Credit Union</th>
-          <th></th>
-        </tr>
-      </thead>
+  <tbody>
+    <% @share_products.each do |share_product| %>
+      <tr>
+        <td><%= share_product.full_name %></td>
+        <td><%= share_product.short_name %></td>
+        <td><%= share_product.primary_deposit %></td>
+        <td><%= share_product.credit_union.short_name %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', share_product, class: "button" %>
+            <%= link_to 'Edit', edit_share_product_path(share_product), class: "button warning" %>
+            <%= link_to 'Destroy', share_product, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-      <tbody>
-        <% @share_products.each do |share_product| %>
-          <tr>
-            <td><%= share_product.full_name %></td>
-            <td><%= share_product.short_name %></td>
-            <td><%= share_product.primary_deposit %></td>
-            <td><%= share_product.credit_union.short_name %></td>
-            <td>
-              <div class="button-group">
-                <%= link_to 'Show', share_product, class: "button" %>
-                <%= link_to 'Edit', edit_share_product_path(share_product), class: "button warning" %>
-                <%= link_to 'Destroy', share_product, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<br>
 
-    <br>
-
-    <%= link_to 'New Share Product', new_share_product_path, class: "button secondary" %>
-
-  </div>
-</div>
+<%= link_to 'New Share Product', new_share_product_path, class: "button secondary" %>

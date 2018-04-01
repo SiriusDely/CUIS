@@ -1,49 +1,43 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+<h3>Share Accounts</h3>
 
-    <h3>Share Accounts</h3>
+<br/>
 
-    <br/>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Primary Balance</th>
+      <th>Compulsory Balance</th>
+      <th>Facultative Balance</th>
+      <th>Total Balance</th>
+      <th>Share Product</th>
+      <th>Member</th>
+      <th></th>
+    </tr>
+  </thead>
 
-    <table class="hover">
-      <thead>
-        <tr>
-          <th>Number</th>
-          <th>Primary Balance</th>
-          <th>Compulsory Balance</th>
-          <th>Facultative Balance</th>
-          <th>Total Balance</th>
-          <th>Share Product</th>
-          <th>Member</th>
-          <th></th>
-        </tr>
-      </thead>
+  <tbody>
+    <% @share_accounts.each do |share_account| %>
+      <tr>
+        <td><%= share_account.number %></td>
+        <td><%= share_account.primary_balance %></td>
+        <td><%= share_account.compulsory_balance %></td>
+        <td><%= share_account.facultative_balance %></td>
+        <td><%= share_account.total_balance %></td>
+        <td><%= share_account.share_product.short_name %></td>
+        <td><%= share_account.member.first_name %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', share_account, class: "button" %>
+            <%= link_to 'Edit', edit_share_account_path(share_account), class: "button warning" %>
+            <%= link_to 'Destroy', share_account, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-      <tbody>
-        <% @share_accounts.each do |share_account| %>
-          <tr>
-            <td><%= share_account.number %></td>
-            <td><%= share_account.primary_balance %></td>
-            <td><%= share_account.compulsory_balance %></td>
-            <td><%= share_account.facultative_balance %></td>
-            <td><%= share_account.total_balance %></td>
-            <td><%= share_account.share_product.short_name %></td>
-            <td><%= share_account.member.first_name %></td>
-            <td>
-              <div class="button-group">
-                <%= link_to 'Show', share_account, class: "button" %>
-                <%= link_to 'Edit', edit_share_account_path(share_account), class: "button warning" %>
-                <%= link_to 'Destroy', share_account, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<br>
 
-    <br>
-
-    <%= link_to 'New Share Account', new_share_account_path, class: "button secondary" %>
-
-  </div>
-</div>
+<%= link_to 'New Share Account', new_share_account_path, class: "button secondary" %>

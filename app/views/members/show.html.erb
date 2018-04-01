@@ -1,48 +1,42 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+<h3>Member</h3>
 
-    <h3>Member</h3>
+<br/>
 
-    <br/>
+<div class="callout">
 
-    <div class="callout">
+  <p>
+    <strong>First name:</strong>
+    <%= @member.first_name %>
+  </p>
 
-      <p>
-      <strong>First name:</strong>
-      <%= @member.first_name %>
-      </p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @member.last_name %>
+  </p>
 
-      <p>
-      <strong>Last name:</strong>
-      <%= @member.last_name %>
-      </p>
+  <p>
+    <strong>Birth date:</strong>
+    <%= @member.birth_date %>
+  </p>
 
-      <p>
-      <strong>Birth date:</strong>
-      <%= @member.birth_date %>
-      </p>
+  <p>
+    <strong>Birth place:</strong>
+    <%= @member.birth_place %>
+  </p>
 
-      <p>
-      <strong>Birth place:</strong>
-      <%= @member.birth_place %>
-      </p>
+  <p>
+    <strong>Credit union:</strong>
+    <%= @member.credit_union.short_name %>
+  </p>
 
-      <p>
-      <strong>Credit union:</strong>
-      <%= @member.credit_union.short_name %>
-      </p>
+  <p>
+    <strong>Branch:</strong>
+    <%= @member.branch.short_name %>
+  </p>
 
-      <p>
-      <strong>Branch:</strong>
-      <%= @member.branch.short_name %>
-      </p>
+</div>
 
-    </div>
-
-    <div class="button-group">
-      <%= link_to '<< Back', members_path, class: "button secondary" %>
-      <%= link_to 'Edit', edit_member_path(@member), class: "button warning" %>
-    </div>
-
-  </div>
+<div class="button-group">
+  <%= link_to '<< Back', members_path, class: "button secondary" %>
+  <%= link_to 'Edit', edit_member_path(@member), class: "button warning" %>
 </div>

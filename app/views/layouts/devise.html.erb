@@ -11,7 +11,7 @@
 
   <body>
     <div>
-      <%= render "layouts/top_menu" %>
+      <%= render "layouts/devise_menu" %>
     </div>
 
     <div class="row">
@@ -27,21 +27,10 @@
       </div>
     </div>
 
-    <div class="grid-container">
-      <div class="grid-x grid-margin-x" id="content">
-        <div class="cell medium-2" data-sticky-container>
-          <div class="sticky" data-sticky data-anchor="content">
-            <br>
-            <ul class="menu vertical accordion-menu" data-accordion-menu>
-              <%= render "layouts/left_menu" %>
-            </ul>
-          </div>
-        </div>
-        <div class="cell medium-10">
-          <br>
-          <%= yield %>
-        </div>
-      </div>
+    <div>
+      <br>
+      <br>
+      <%= yield %>
     </div>
   </body>
 </html>

@@ -1,18 +1,12 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+<h3>Editing Share Account</h3>
 
-    <h3>Editing Share Account</h3>
+<br/>
 
-    <br/>
+<%= render 'form', share_account: @share_account %>
 
-    <%= render 'form', share_account: @share_account %>
+<br/>
 
-    <br/>
-
-    <div class="button-group">
-      <%= link_to '<< Back', share_accounts_path, class: "button secondary" %>
-      <%= link_to 'Show', @share_account, class: "button" %>
-    </div>
-
-  </div>
+<div class="button-group">
+  <%= link_to '<< Back', share_accounts_path, class: "button secondary" %>
+  <%= link_to 'Show', @share_account, class: "button" %>
 </div>

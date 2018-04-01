@@ -1,18 +1,12 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+<h3>Editing Saving Statement</h3>
 
-    <h3>Editing Saving Statement</h3>
+<br/>
 
-    <br/>
+<%= render 'form', saving_statement: @saving_statement %>
 
-    <%= render 'form', saving_statement: @saving_statement %>
+<br/>
 
-    <br/>
-
-    <div class="button-group">
-      <%= link_to '<< Back', saving_statements_path, class: "button secondary" %>
-      <%= link_to 'Show', @saving_statement, class: "button" %>
-    </div>
-
-  </div>
+<div class="button-group">
+  <%= link_to '<< Back', saving_statements_path, class: "button secondary" %>
+  <%= link_to 'Show', @saving_statement, class: "button" %>
 </div>

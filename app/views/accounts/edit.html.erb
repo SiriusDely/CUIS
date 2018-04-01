@@ -1,18 +1,12 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+<h3>Editing Account</h3>
 
-    <h3>Editing Account</h3>
+<br/>
 
-    <br/>
+<%= render 'form', account: @account %>
 
-    <%= render 'form', account: @account %>
+<br/>
 
-    <br/>
-
-    <div class="button-group">
-      <%= link_to '<< Back', accounts_path, class: "button secondary" %>
-      <%= link_to 'Show', @account, class: "button" %>
-    </div>
-
-  </div>
+<div class="button-group">
+  <%= link_to '<< Back', accounts_path, class: "button secondary" %>
+  <%= link_to 'Show', @account, class: "button" %>
 </div>

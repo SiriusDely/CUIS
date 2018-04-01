@@ -1,39 +1,33 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+<h3>Transactions</h3>
 
-    <h3>Transactions</h3>
+<br/>
 
-    <br/>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Happened At</th>
+      <th>Transactable</th>
+      <th></th>
+    </tr>
+  </thead>
 
-    <table class="hover">
-      <thead>
-        <tr>
-          <th>Happened At</th>
-          <th>Transactable</th>
-          <th></th>
-        </tr>
-      </thead>
+  <tbody>
+    <% @transfers.each do |transfer| %>
+      <tr>
+        <td><%= transfer.happened_at %></td>
+        <td><%= transfer.transferable %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', transfer, class: "button" %>
+            <%= link_to 'Edit', edit_transfer_path(transfer), class: "button warning" %>
+            <%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-      <tbody>
-        <% @transfers.each do |transfer| %>
-          <tr>
-            <td><%= transfer.happened_at %></td>
-            <td><%= transfer.transferable %></td>
-            <td>
-              <div class="button-group">
-                <%= link_to 'Show', transfer, class: "button" %>
-                <%= link_to 'Edit', edit_transfer_path(transfer), class: "button warning" %>
-                <%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<br>
 
-    <br>
-
-    <%= link_to 'New Transaction', new_transfer_path, class: "button secondary" %>
-
-  </div>
-</div>
+<%= link_to 'New Transaction', new_transfer_path, class: "button secondary" %>

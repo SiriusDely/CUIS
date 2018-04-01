@@ -1,14 +1,9 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+<h3>New Branch</h3>
 
-    <h3>New Branch</h3>
+<div>&nbsp;</div>
 
-    <div>&nbsp;</div>
+<%= render 'form', branch: @branch %>
 
-    <%= render 'form', branch: @branch %>
+<div>&nbsp;</div>
 
-    <div>&nbsp;</div>
-
-    <%= link_to '<< Back', branches_path, class: "button secondary" %>
-  </div>
-</div>
+<%= link_to '<< Back', branches_path, class: "button secondary" %>

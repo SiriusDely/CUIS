@@ -1,40 +1,35 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+<h3>Branches</h3>
 
-    <h3>Branches</h3>
+<br>
 
-    <br>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th width="150">Short Name</th>
+      <th width="150">Credit Union</th>
+      <th width="100">Actions</th>
+    </tr>
+  </thead>
 
-    <table class="hover">
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th width="150">Short Name</th>
-          <th width="150">Credit Union</th>
-          <th width="100">Actions</th>
-        </tr>
-      </thead>
+  <tbody>
+    <% @branches.each do |branch| %>
+      <tr>
+        <td><%= branch.full_name %></td>
+        <td><%= branch.short_name %></td>
+        <td><%= branch.credit_union.short_name %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', branch, class: "button" %>
+            <%= link_to 'Edit', edit_branch_path(branch), class: "button warning" %>
+            <%= link_to 'Delete', branch, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-      <tbody>
-        <% @branches.each do |branch| %>
-          <tr>
-            <td><%= branch.full_name %></td>
-            <td><%= branch.short_name %></td>
-            <td><%= branch.credit_union.short_name %></td>
-            <td>
-              <div class="button-group">
-                <%= link_to 'Show', branch, class: "button" %>
-                <%= link_to 'Edit', edit_branch_path(branch), class: "button warning" %>
-                <%= link_to 'Delete', branch, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<br>
 
-    <br>
-
-    <%= link_to 'New Branch', new_branch_path, class: "button secondary" %>
-  </div>
-</div>
+<%= link_to 'New Branch', new_branch_path, class: "button secondary" %>

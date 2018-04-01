@@ -1,35 +1,32 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
-    <h3>Branch</h3>
+<h3>Branch</h3>
 
-    <br>
+<br>
 
-    <div class="callout">
+<div class="callout">
 
-      <p>
-      <strong>Full name:</strong>
-      <%= @branch.full_name %>
-      </p>
+  <p>
+    <strong>Full name:</strong>
+    <%= @branch.full_name %>
+  </p>
 
-      <p>
-      <strong>Short name:</strong>
-      <%= @branch.short_name %>
-      </p>
+  <p>
+    <strong>Short name:</strong>
+    <%= @branch.short_name %>
+  </p>
 
-      <p>
-      <strong>Address:</strong>
-      <%= @branch.address %>
-      </p>
+  <p>
+    <strong>Address:</strong>
+    <%= @branch.address %>
+  </p>
 
-      <p>
-      <strong>Credit union:</strong>
-      <%= @branch.credit_union.short_name %>
-      </p>
+  <p>
+    <strong>Credit union:</strong>
+    <%= @branch.credit_union.short_name %>
+  </p>
 
-    </div>
-    <div class="button-group">
-      <%= link_to '<< Back', branches_path, class: "button secondary" %>
-      <%= link_to 'Edit', edit_branch_path(@branch), class: "button warning" %>
-    </div>
-  </div>
+</div>
+
+<div class="button-group">
+  <%= link_to '<< Back', branches_path, class: "button secondary" %>
+  <%= link_to 'Edit', edit_branch_path(@branch), class: "button warning" %>
 </div>

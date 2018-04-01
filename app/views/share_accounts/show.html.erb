@@ -1,51 +1,45 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-3 medium-6 large-offset-4 large-4">
+<h3>Share Account</h3>
 
-    <h3>Share Account</h3>
+<br/>
 
-    <br/>
+<div class="callout">
+  <p>
+    <strong>Number:</strong>
+    <%= @share_account.number %>
+  </p>
 
-    <div class="callout">
-      <p>
-      <strong>Number:</strong>
-      <%= @share_account.number %>
-      </p>
+  <p>
+    <strong>Primary Balance:</strong>
+    <%= @share_account.primary_balance %>
+  </p>
 
-      <p>
-      <strong>Primary Balance:</strong>
-      <%= @share_account.primary_balance %>
-      </p>
+  <p>
+    <strong>Compulsory Balance:</strong>
+    <%= @share_account.compulsory_balance %>
+  </p>
 
-      <p>
-      <strong>Compulsory Balance:</strong>
-      <%= @share_account.compulsory_balance %>
-      </p>
+  <p>
+    <strong>Facultative Balance:</strong>
+    <%= @share_account.facultative_balance %>
+  </p>
 
-      <p>
-      <strong>Facultative Balance:</strong>
-      <%= @share_account.facultative_balance %>
-      </p>
+  <p>
+    <strong>Total Balance:</strong>
+    <%= @share_account.total_balance %>
+  </p>
 
-      <p>
-      <strong>Total Balance:</strong>
-      <%= @share_account.total_balance %>
-      </p>
+  <p>
+    <strong>Share Product:</strong>
+    <%= @share_account.share_product.short_name %>
+  </p>
 
-      <p>
-      <strong>Share Product:</strong>
-      <%= @share_account.share_product.short_name %>
-      </p>
+  <p>
+    <strong>Member:</strong>
+    <%= @share_account.member.first_name %>
+  </p>
+</div>
 
-      <p>
-      <strong>Member:</strong>
-      <%= @share_account.member.first_name %>
-      </p>
-    </div>
-
-    <div class="button-group">
-      <%= link_to '<< Back', share_accounts_path, class: "button secondary" %>
-      <%= link_to 'Edit', edit_share_account_path(@share_account), class: "button warning" %>
-    </div>
-
-  </div>
+<div class="button-group">
+  <%= link_to '<< Back', share_accounts_path, class: "button secondary" %>
+  <%= link_to 'Edit', edit_share_account_path(@share_account), class: "button warning" %>
 </div>

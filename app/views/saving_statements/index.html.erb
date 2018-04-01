@@ -1,45 +1,39 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+<h3>Saving Statements</h3>
 
-    <h3>Saving Statements</h3>
+<br/>
 
-    <br/>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Saving Account</th>
+      <th>Amount</th>
+      <th>Is Debit</th>
+      <th>Type Mask</th>
+      <th>Note</th>
+      <th></th>
+    </tr>
+  </thead>
 
-    <table class="hover">
-      <thead>
-        <tr>
-          <th>Saving Account</th>
-          <th>Amount</th>
-          <th>Is Debit</th>
-          <th>Type Mask</th>
-          <th>Note</th>
-          <th></th>
-        </tr>
-      </thead>
+  <tbody>
+    <% @saving_statements.each do |saving_statement| %>
+      <tr>
+        <td><%= saving_statement.saving_account.number %></td>
+        <td><%= saving_statement.amount %></td>
+        <td><%= saving_statement.is_debit %></td>
+        <td><%= saving_statement.type_mask %></td>
+        <td><%= saving_statement.note %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', saving_statement, class: "button" %>
+            <%= link_to 'Edit', edit_saving_statement_path(saving_statement), class: "button warning" %>
+            <%= link_to 'Destroy', saving_statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-      <tbody>
-        <% @saving_statements.each do |saving_statement| %>
-          <tr>
-            <td><%= saving_statement.saving_account.number %></td>
-            <td><%= saving_statement.amount %></td>
-            <td><%= saving_statement.is_debit %></td>
-            <td><%= saving_statement.type_mask %></td>
-            <td><%= saving_statement.note %></td>
-            <td>
-              <div class="button-group">
-                <%= link_to 'Show', saving_statement, class: "button" %>
-                <%= link_to 'Edit', edit_saving_statement_path(saving_statement), class: "button warning" %>
-                <%= link_to 'Destroy', saving_statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<br>
 
-    <br>
-
-    <%= link_to 'New Saving Statement', new_saving_statement_path, class: "button secondary" %>
-
-  </div>
-</div>
+<%= link_to 'New Saving Statement', new_saving_statement_path, class: "button secondary" %>

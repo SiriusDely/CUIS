@@ -113,7 +113,7 @@
           </ul>
         </li>
         <li>
-          <a href="#"><%= current_user.username %></a>
+          <a><%= current_user.username %></a>
           <ul class="menu vertical">
             <li>
               <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>

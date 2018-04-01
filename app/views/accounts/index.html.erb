@@ -1,47 +1,41 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-offset-1 medium-10 large-offset-2 large-8">
+<h3>Accounts</h3>
 
-    <h3>Accounts</h3>
+<br/>
 
-    <br/>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Type</th>
+      <th>Full Name</th>
+      <th>Short Name</th>
+      <th>Balance</th>
+      <th>Sign</th>
+      <th></th>
+    </tr>
+  </thead>
 
-    <table class="hover">
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Type</th>
-          <th>Full Name</th>
-          <th>Short Name</th>
-          <th>Balance</th>
-          <th>Sign</th>
-          <th></th>
-        </tr>
-      </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.code %></td>
+        <td><%= account.account_type.to_s.humanize %></td>
+        <td><%= account.full_name %></td>
+        <td><%= account.short_name %></td>
+        <td><%= account.balance %></td>
+        <td><%= account.is_positive ? "+" : "-" %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', account, class: "button" %>
+            <%= link_to 'Edit', edit_account_path(account), class: "button warning" %>
+            <%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-      <tbody>
-        <% @accounts.each do |account| %>
-          <tr>
-            <td><%= account.code %></td>
-            <td><%= account.account_type.to_s.humanize %></td>
-            <td><%= account.full_name %></td>
-            <td><%= account.short_name %></td>
-            <td><%= account.balance %></td>
-            <td><%= account.is_positive ? "+" : "-" %></td>
-            <td>
-              <div class="button-group">
-                <%= link_to 'Show', account, class: "button" %>
-                <%= link_to 'Edit', edit_account_path(account), class: "button warning" %>
-                <%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<br>
 
-    <br>
-
-    <%= link_to 'New Account', new_account_path, class: "button secondary" %>
-
-  </div>
-</div>
+<%= link_to 'New Account', new_account_path, class: "button secondary" %>

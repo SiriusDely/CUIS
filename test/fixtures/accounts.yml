@@ -31,3 +31,11 @@ four:
   short_name: MyString
   balance: 9.99
   is_positive: false
+
+five:
+  code: 400
+  type_mask: 1
+  full_name: MyString
+  short_name: MyString
+  balance: 9.99
+  is_positive: false
