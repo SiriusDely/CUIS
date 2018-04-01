@@ -10,11 +10,11 @@
   </head>
 
   <body>
-    <div data-sticky-container id="top-menu-container">
+    <div data-sticky-container>
       <%= render "layouts/top_menu" %>
     </div>
 
-    <div class="row">
+    <div class="row" id="flash-container">
       <div class="columns">
         <% flash.each do |key, value| %>
           <%= content_tag :div, class: foundation_flash_class(key), :data => { :closable => '' } do %>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="grid-container">
-      <div class="grid-x grid-margin-x" id="content">
+      <div class="grid-x grid-margin-x">
         <div class="cell medium-2" data-sticky-container>
           <%= render "layouts/left_menu" %>
         </div>
