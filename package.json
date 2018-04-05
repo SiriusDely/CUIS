@@ -1,6 +1,9 @@
 {
   "name": "CUIS",
   "private": true,
+  "engines": {
+    "yarn": ">= 0.25.2"
+  },
   "dependencies": {
     "jquery": "3.3.1"
   },
