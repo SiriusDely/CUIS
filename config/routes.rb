@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   resources :saving_products
   resources :saving_accounts
   resources :saving_statements
+  resources :income_sources
+  resources :expense_allocations
 
  end

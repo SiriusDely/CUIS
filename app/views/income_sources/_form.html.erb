@@ -1,0 +1,32 @@
+<%= form_with(model: income_source, local: true) do |form| %>
+  <% if income_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(income_source.errors.count, "error") %> prohibited this income_source from being saved:</h2>
+
+      <ul>
+      <% income_source.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, id: :income_source_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_name %>
+    <%= form.text_field :short_name, id: :income_source_short_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_union_id %>
+    <%= form.text_field :credit_union_id, id: :income_source_credit_union_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Expense Allocations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Short name</th>
+      <th>Credit union</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expense_allocations.each do |expense_allocation| %>
+      <tr>
+        <td><%= expense_allocation.full_name %></td>
+        <td><%= expense_allocation.short_name %></td>
+        <td><%= expense_allocation.credit_union %></td>
+        <td><%= link_to 'Show', expense_allocation %></td>
+        <td><%= link_to 'Edit', edit_expense_allocation_path(expense_allocation) %></td>
+        <td><%= link_to 'Destroy', expense_allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expense Allocation', new_expense_allocation_path %>

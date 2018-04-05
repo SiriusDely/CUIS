@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321224722) do
+ActiveRecord::Schema.define(version: 20180405125800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,24 @@ ActiveRecord::Schema.define(version: 20180321224722) do
     t.string "short_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "expense_allocations", force: :cascade do |t|
+    t.string "full_name"
+    t.string "short_name"
+    t.bigint "credit_union_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_union_id"], name: "index_expense_allocations_on_credit_union_id"
+  end
+
+  create_table "income_sources", force: :cascade do |t|
+    t.string "full_name"
+    t.string "short_name"
+    t.bigint "credit_union_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_union_id"], name: "index_income_sources_on_credit_union_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -186,6 +204,8 @@ ActiveRecord::Schema.define(version: 20180321224722) do
   add_foreign_key "allotments", "accounts"
   add_foreign_key "allotments", "transfers"
   add_foreign_key "branches", "credit_unions"
+  add_foreign_key "expense_allocations", "credit_unions"
+  add_foreign_key "income_sources", "credit_unions"
   add_foreign_key "members", "branches"
   add_foreign_key "members", "credit_unions"
   add_foreign_key "saving_accounts", "members"

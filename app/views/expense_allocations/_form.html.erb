@@ -1,0 +1,32 @@
+<%= form_with(model: expense_allocation, local: true) do |form| %>
+  <% if expense_allocation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expense_allocation.errors.count, "error") %> prohibited this expense_allocation from being saved:</h2>
+
+      <ul>
+      <% expense_allocation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, id: :expense_allocation_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_name %>
+    <%= form.text_field :short_name, id: :expense_allocation_short_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_union_id %>
+    <%= form.text_field :credit_union_id, id: :expense_allocation_credit_union_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

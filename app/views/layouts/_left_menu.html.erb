@@ -39,6 +39,40 @@
     <li><a href="#">Deposits</a></li>
     <li><a href="#">Loans</a></li>
     <li>
+      <a href="#">Incomes</a>
+      <ul class="menu vertical nested">
+        <li>
+          <%= link_to "Sources Of Income", income_sources_path %>
+        </li>
+        <li>
+          <%= link_to "New Income Source", new_income_source_path %>
+        </li>
+        <li>
+          <%# link_to "Income Statements", saving_statements_path %>
+        </li>
+        <li>
+          <%# link_to "New Income Statement", new_saving_statement_path %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Expenses</a>
+      <ul class="menu vertical nested">
+        <li>
+          <%= link_to "Expense Allocations", expense_allocations_path %>
+        </li>
+        <li>
+          <%= link_to "New Exp. Allocation", new_expense_allocation_path %>
+        </li>
+        <li>
+          <%# link_to "Expense Statements", expense_statements_path %>
+        </li>
+        <li>
+          <%# link_to "New Expense Statement", new_expense_statement_path %>
+        </li>
+      </ul>
+    </li>
+    <li>
       <a href="#">Accounting</a>
       <ul class="menu vertical nested">
         <li>

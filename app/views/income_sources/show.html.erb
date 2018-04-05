@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @income_source.full_name %>
+</p>
+
+<p>
+  <strong>Short name:</strong>
+  <%= @income_source.short_name %>
+</p>
+
+<p>
+  <strong>Credit union:</strong>
+  <%= @income_source.credit_union %>
+</p>
+
+<%= link_to 'Edit', edit_income_source_path(@income_source) %> |
+<%= link_to 'Back', income_sources_path %>
