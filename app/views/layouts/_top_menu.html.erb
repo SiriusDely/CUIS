@@ -19,6 +19,45 @@
             </li>
           </ul>
         </li>
+        <li>
+          <a>Products</a>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "Share Products", share_products_path %>
+            </li>
+            <li>
+              <%= link_to "New Share Product", new_share_product_path %>
+            </li>
+            <li>
+              <%= link_to "Saving Products", saving_products_path %>
+            </li>
+            <li>
+              <%= link_to "New Saving Product", new_saving_product_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>Incomes</a>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "Sources Of Income", income_sources_path %>
+            </li>
+            <li>
+              <%= link_to "New Income Source", new_income_source_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>Expenses</a>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "Expense Allocations", expense_allocations_path %>
+            </li>
+            <li>
+              <%= link_to "New Exp. Allocation", new_expense_allocation_path %>
+            </li>
+          </ul>
+        </li>
       <% end %>
     </ul>
   </div>
