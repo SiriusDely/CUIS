@@ -1,0 +1,39 @@
+<h3>Checking Statements</h3>
+
+<br/>
+
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Checking Account</th>
+      <th>Amount</th>
+      <th>Is Debit</th>
+      <th>Type Mask</th>
+      <th>Note</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checking_statements.each do |checking_statement| %>
+      <tr>
+        <td><%= checking_statement.checking_account.number %></td>
+        <td><%= checking_statement.amount %></td>
+        <td><%= checking_statement.is_debit %></td>
+        <td><%= checking_statement.type_mask %></td>
+        <td><%= checking_statement.note %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', checking_statement, class: "button" %>
+            <%= link_to 'Edit', edit_checking_statement_path(checking_statement), class: "button warning" %>
+            <%= link_to 'Destroy', checking_statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Checking Statement', new_checking_statement_path, class: "button secondary" %>

@@ -1,0 +1,37 @@
+<%= form_with(model: checking_product, local: true) do |form| %>
+  <% if checking_product.errors.any? %>
+    <div id="error_explanation" class="callout alert">
+      <h5><%= pluralize(checking_product.errors.count, "error") %> prohibited this checking_product from being saved:</h5>
+
+      <ul>
+      <% checking_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, id: :checking_product_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_name %>
+    <%= form.text_field :short_name, id: :checking_product_short_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interest_rate %>
+    <%= form.text_field :interest_rate, id: :checking_product_interest_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_union_id %>
+    <%= form.collection_select :credit_union_id, @credit_unions, :id, :short_name, {include_blank: true}, id: :checking_product_credit_union_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button expanded" %>
+  </div>
+<% end %>

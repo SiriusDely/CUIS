@@ -1,0 +1,37 @@
+<h3>Checking Products</h3>
+
+<br/>
+
+<table class="hover">
+  <thead>
+    <tr>
+      <th width="300">Full Name</th>
+      <th width="150">Short Name</th>
+      <th width="150">Interest Rate</th>
+      <th width="150">Credit Union</th>
+      <th width="100"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checking_products.each do |checking_product| %>
+      <tr>
+        <td><%= checking_product.full_name %></td>
+        <td><%= checking_product.short_name %></td>
+        <td><%= checking_product.interest_rate %></td>
+        <td><%= checking_product.credit_union.short_name %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', checking_product, class: "button" %>
+            <%= link_to 'Edit', edit_checking_product_path(checking_product), class: "button warning" %>
+            <%= link_to 'Destroy', checking_product, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Checking Product', new_checking_product_path, class: "button secondary" %>

@@ -1,0 +1,36 @@
+<h3>Checking Statement</h3>
+
+<br/>
+
+<div class="callout">
+  <p>
+    <strong>Checking Account:</strong>
+    <%= @checking_statement.checking_account.number %>
+  </p>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= @checking_statement.amount%>
+  </p>
+
+  <p>
+    <strong>Is Debit:</strong>
+    <%= @checking_statement.is_debit %>
+  </p>
+
+  <p>
+    <strong>Type Mask:</strong>
+    <%= @checking_statement.type_mask %>
+  </p>
+
+  <p>
+    <strong>Note:</strong>
+    <%= @checking_statement.note %>
+  </p>
+
+</div>
+
+<div class="button-group">
+  <%= link_to '<< Back', checking_statements_path, class: "button secondary" %>
+  <%= link_to 'Edit', edit_checking_statement_path(@checking_statement), class: "button warning" %>
+</div>

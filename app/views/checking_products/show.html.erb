@@ -1,0 +1,32 @@
+<h3>Checking Product</h3>
+
+<br/>
+
+<div class="callout">
+
+  <p>
+    <strong>Full Name:</strong>
+    <%= @checking_product.full_name %>
+  </p>
+
+  <p>
+    <strong>Short Name:</strong>
+    <%= @checking_product.short_name %>
+  </p>
+
+  <p>
+    <strong>Interest Rate:</strong>
+    <%= @checking_product.interest_rate %>
+  </p>
+
+  <p>
+    <strong>Credit Union:</strong>
+    <%= @checking_product.credit_union.short_name %>
+  </p>
+
+</div>
+
+<div class="button-group">
+  <%= link_to '<< Back', checking_products_path, class: "button secondary" %>
+  <%= link_to 'Edit', edit_checking_product_path(@checking_product), class: "button warning" %>
+</div>

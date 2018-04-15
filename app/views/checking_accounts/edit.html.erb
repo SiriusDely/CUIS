@@ -1,0 +1,12 @@
+<h3>Editing Checking Account</h3>
+
+<br/>
+
+<%= render 'form', checking_account: @checking_account %>
+
+<br/>
+
+<div class="button-group">
+  <%= link_to '<< Back', checking_accounts_path, class: "button secondary" %>
+  <%= link_to 'Show', @checking_account, class: "button" %>
+</div>

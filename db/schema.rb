@@ -51,6 +51,44 @@ ActiveRecord::Schema.define(version: 20180405125800) do
     t.index ["credit_union_id"], name: "index_branches_on_credit_union_id"
   end
 
+  create_table "checking_accounts", force: :cascade do |t|
+    t.string "number", default: "", null: false
+    t.decimal "balance", default: "0.0", null: false
+    t.float "interest_rate", default: 0.0, null: false
+    t.bigint "checking_product_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checking_product_id"], name: "index_checking_accounts_on_checking_product_id"
+    t.index ["member_id"], name: "index_checking_accounts_on_member_id"
+    t.index ["number"], name: "index_checking_accounts_on_number", unique: true
+  end
+
+  create_table "checking_products", force: :cascade do |t|
+    t.string "full_name", default: "", null: false
+    t.string "short_name", default: "", null: false
+    t.float "interest_rate", null: false
+    t.bigint "credit_union_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_union_id"], name: "index_checking_products_on_credit_union_id"
+  end
+
+  create_table "checking_statements", force: :cascade do |t|
+    t.bigint "checking_account_id", null: false
+    t.boolean "is_debit", default: false, null: false
+    t.decimal "amount", default: "0.0", null: false
+    t.decimal "before", default: "0.0", null: false
+    t.decimal "after", default: "0.0", null: false
+    t.integer "type_mask", default: 0, null: false
+    t.string "note", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checking_account_id"], name: "index_checking_statements_on_checking_account_id"
+    t.index ["is_debit"], name: "index_checking_statements_on_is_debit"
+    t.index ["type_mask"], name: "index_checking_statements_on_type_mask"
+  end
+
   create_table "credit_unions", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "short_name", null: false
@@ -87,44 +125,6 @@ ActiveRecord::Schema.define(version: 20180405125800) do
     t.datetime "updated_at", null: false
     t.index ["branch_id"], name: "index_members_on_branch_id"
     t.index ["credit_union_id"], name: "index_members_on_credit_union_id"
-  end
-
-  create_table "saving_accounts", force: :cascade do |t|
-    t.string "number", default: "", null: false
-    t.decimal "balance", default: "0.0", null: false
-    t.float "interest_rate", default: 0.0, null: false
-    t.bigint "saving_product_id", null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["member_id"], name: "index_saving_accounts_on_member_id"
-    t.index ["number"], name: "index_saving_accounts_on_number", unique: true
-    t.index ["saving_product_id"], name: "index_saving_accounts_on_saving_product_id"
-  end
-
-  create_table "saving_products", force: :cascade do |t|
-    t.string "full_name", default: "", null: false
-    t.string "short_name", default: "", null: false
-    t.float "interest_rate", null: false
-    t.bigint "credit_union_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["credit_union_id"], name: "index_saving_products_on_credit_union_id"
-  end
-
-  create_table "saving_statements", force: :cascade do |t|
-    t.bigint "saving_account_id", null: false
-    t.boolean "is_debit", default: false, null: false
-    t.decimal "amount", default: "0.0", null: false
-    t.decimal "before", default: "0.0", null: false
-    t.decimal "after", default: "0.0", null: false
-    t.integer "type_mask", default: 0, null: false
-    t.string "note", default: ""
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["is_debit"], name: "index_saving_statements_on_is_debit"
-    t.index ["saving_account_id"], name: "index_saving_statements_on_saving_account_id"
-    t.index ["type_mask"], name: "index_saving_statements_on_type_mask"
   end
 
   create_table "share_accounts", force: :cascade do |t|
@@ -204,14 +204,14 @@ ActiveRecord::Schema.define(version: 20180405125800) do
   add_foreign_key "allotments", "accounts"
   add_foreign_key "allotments", "transfers"
   add_foreign_key "branches", "credit_unions"
+  add_foreign_key "checking_accounts", "checking_products"
+  add_foreign_key "checking_accounts", "members"
+  add_foreign_key "checking_products", "credit_unions"
+  add_foreign_key "checking_statements", "checking_accounts"
   add_foreign_key "expense_allocations", "credit_unions"
   add_foreign_key "income_sources", "credit_unions"
   add_foreign_key "members", "branches"
   add_foreign_key "members", "credit_unions"
-  add_foreign_key "saving_accounts", "members"
-  add_foreign_key "saving_accounts", "saving_products"
-  add_foreign_key "saving_products", "credit_unions"
-  add_foreign_key "saving_statements", "saving_accounts"
   add_foreign_key "share_accounts", "members"
   add_foreign_key "share_accounts", "share_products"
   add_foreign_key "share_products", "credit_unions"

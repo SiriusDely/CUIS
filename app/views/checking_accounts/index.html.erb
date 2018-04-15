@@ -1,0 +1,39 @@
+<h3>Checking Accounts</h3>
+
+<br/>
+
+<table class="hover">
+  <thead>
+    <tr>
+      <th width=100>Number</th>
+      <th width=150>Balance</th>
+      <th width=150>Interest Rate</th>
+      <th width=150>Checking Product</th>
+      <th width=150>Member</th>
+      <th width=100></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checking_accounts.each do |checking_account| %>
+      <tr>
+        <td><%= checking_account.number %></td>
+        <td><%= checking_account.balance %></td>
+        <td><%= checking_account.interest_rate %></td>
+        <td><%= checking_account.checking_product.short_name %></td>
+        <td><%= checking_account.member.first_name %></td>
+        <td>
+          <div class="button-group">
+            <%= link_to 'Show', checking_account, class: "button" %>
+            <%= link_to 'Edit', edit_checking_account_path(checking_account), class: "button warning" %>
+            <%= link_to 'Destroy', checking_account, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Checking Account', new_checking_account_path, class: "button secondary" %>

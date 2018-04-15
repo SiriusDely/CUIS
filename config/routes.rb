@@ -29,9 +29,9 @@ Rails.application.routes.draw do
   resources :share_products
   resources :share_accounts
   resources :share_statements
-  resources :saving_products
-  resources :saving_accounts
-  resources :saving_statements
+  resources :checking_products
+  resources :checking_accounts
+  resources :checking_statements
   resources :income_sources
   resources :expense_allocations
 

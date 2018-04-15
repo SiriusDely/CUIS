@@ -1,0 +1,36 @@
+<h3>Checking Account</h3>
+
+<br/>
+
+<div class="callout">
+  <p>
+    <strong>Number:</strong>
+    <%= @checking_account.number %>
+  </p>
+
+  <p>
+    <strong>Balance:</strong>
+    <%= @checking_account.balance %>
+  </p>
+
+  <p>
+    <strong>Interest Rate:</strong>
+    <%= @checking_account.interest_rate %>
+  </p>
+
+  <p>
+    <strong>Checking Product:</strong>
+    <%= @checking_account.checking_product.short_name %>
+  </p>
+
+  <p>
+    <strong>Member:</strong>
+    <%= @checking_account.member.first_name %>
+  </p>
+
+</div>
+
+<div class="button-group">
+  <%= link_to '<< Back', checking_accounts_path, class: "button secondary" %>
+  <%#= link_to 'Edit', edit_checking_account_path(@checking_account), class: "button warning" %>
+</div>
