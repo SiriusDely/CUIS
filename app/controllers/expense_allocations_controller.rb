@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ExpenseAllocationsController < ApplicationController
-  before_action :set_expense_allocation, only: [:show, :edit, :update, :destroy]
+  before_action :set_expense_allocation, only: %i[show edit update destroy]
 
   # GET /expense_allocations
   # GET /expense_allocations.json
@@ -9,8 +11,7 @@ class ExpenseAllocationsController < ApplicationController
 
   # GET /expense_allocations/1
   # GET /expense_allocations/1.json
-  def show
-  end
+  def show; end
 
   # GET /expense_allocations/new
   def new
@@ -18,8 +19,7 @@ class ExpenseAllocationsController < ApplicationController
   end
 
   # GET /expense_allocations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /expense_allocations
   # POST /expense_allocations.json
@@ -62,13 +62,14 @@ class ExpenseAllocationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_expense_allocation
-      @expense_allocation = ExpenseAllocation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def expense_allocation_params
-      params.require(:expense_allocation).permit(:full_name, :short_name, :credit_union_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_expense_allocation
+    @expense_allocation = ExpenseAllocation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def expense_allocation_params
+    params.require(:expense_allocation).permit(:full_name, :short_name, :credit_union_id)
+  end
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -8,19 +10,17 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     if @user.save
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to @user, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     logger.debug "user_params: #{user_params.inspect}"
     if @user.update(user_params)
       # render :show, status: :ok, location: @user
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to @user, notice: 'User was successfully updated.'
     else
       render :edit
     end
@@ -38,17 +38,18 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_url, notice: "User was successfully destroyed."
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def user_params
-      params.require(:user)
-        .permit(:username, :email, :password, :password_confirmation, :first_name, :last_name, roles: [])
-        .reject{ |_, v| v.blank? || v == "" }
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user)
+          .permit(:username, :email, :password, :password_confirmation, :first_name, :last_name, roles: [])
+          .reject { |_, v| v.blank? || v == '' }
+  end
 end

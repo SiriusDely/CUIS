@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CheckingStatementsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_checking_statement, only: [:show, :edit, :update, :destroy]
+  before_action :set_checking_statement, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -12,8 +14,7 @@ class CheckingStatementsController < ApplicationController
 
   # GET /checking_statements/1
   # GET /checking_statements/1.json
-  def show
-  end
+  def show; end
 
   # GET /checking_statements/new
   def new
@@ -68,13 +69,14 @@ class CheckingStatementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_checking_statement
-      @checking_statement = CheckingStatement.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def checking_statement_params
-      params.require(:checking_statement).permit(:amount, :statement_type, :note, :checking_account_id, :is_debit)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_checking_statement
+    @checking_statement = CheckingStatement.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def checking_statement_params
+    params.require(:checking_statement).permit(:amount, :statement_type, :note, :checking_account_id, :is_debit)
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
@@ -31,9 +33,6 @@ class Ability
 
     user ||= User.new
 
-    if user.has_role? :super_admin
-      can :manage, :all
-    end
-
+    can :manage, :all if user.has_role? :super_admin
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateShareStatements < ActiveRecord::Migration[5.1]
   def change
     create_table :share_statements do |t|
@@ -8,7 +10,7 @@ class CreateShareStatements < ActiveRecord::Migration[5.1]
       t.decimal :after,                               null: false, default: 0.0
       t.integer :balance_type_mask,                   null: false, default: 0
       t.integer :type_mask,                           null: false, default: 0
-      t.string :note,                                 null: false, default: ""
+      t.string :note,                                 null: false, default: ''
 
       t.timestamps
     end

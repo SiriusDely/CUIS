@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ShareProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_share_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_share_product, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -12,8 +14,7 @@ class ShareProductsController < ApplicationController
 
   # GET /share_products/1
   # GET /share_products/1.json
-  def show
-  end
+  def show; end
 
   # GET /share_products/new
   def new
@@ -68,13 +69,14 @@ class ShareProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_share_product
-      @share_product = ShareProduct.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def share_product_params
-      params.require(:share_product).permit(:full_name, :short_name, :primary_deposit, :credit_union_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_share_product
+    @share_product = ShareProduct.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def share_product_params
+    params.require(:share_product).permit(:full_name, :short_name, :primary_deposit, :credit_union_id)
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCheckingStatements < ActiveRecord::Migration[5.1]
   def change
     create_table :checking_statements do |t|
@@ -7,7 +9,7 @@ class CreateCheckingStatements < ActiveRecord::Migration[5.1]
       t.decimal :before,            null: false, default: 0.0
       t.decimal :after,             null: false, default: 0.0
       t.integer :type_mask,         null: false, default: 0
-      t.string :note,               null: true, default: ""
+      t.string :note,               null: true, default: ''
 
       t.timestamps
     end

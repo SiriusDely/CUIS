@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CheckingProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_checking_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_checking_product, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -12,8 +14,7 @@ class CheckingProductsController < ApplicationController
 
   # GET /checking_products/1
   # GET /checking_products/1.json
-  def show
-  end
+  def show; end
 
   # GET /checking_products/new
   def new
@@ -68,13 +69,14 @@ class CheckingProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_checking_product
-      @checking_product = CheckingProduct.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def checking_product_params
-      params.require(:checking_product).permit(:full_name, :short_name, :interest_rate, :credit_union_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_checking_product
+    @checking_product = CheckingProduct.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def checking_product_params
+    params.require(:checking_product).permit(:full_name, :short_name, :interest_rate, :credit_union_id)
+  end
 end

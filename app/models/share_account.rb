@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShareAccount < ApplicationRecord
   belongs_to :share_product
   belongs_to :member
@@ -6,7 +8,8 @@ class ShareAccount < ApplicationRecord
   before_save :update_total_balance
 
   private
+
   def update_total_balance
-    self.total_balance = self.primary_balance + self.compulsory_balance + self.facultative_balance
+    self.total_balance = primary_balance + compulsory_balance + facultative_balance
   end
 end

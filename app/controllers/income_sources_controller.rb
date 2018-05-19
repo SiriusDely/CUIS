@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class IncomeSourcesController < ApplicationController
-  before_action :set_income_source, only: [:show, :edit, :update, :destroy]
+  before_action :set_income_source, only: %i[show edit update destroy]
 
   # GET /income_sources
   # GET /income_sources.json
@@ -9,8 +11,7 @@ class IncomeSourcesController < ApplicationController
 
   # GET /income_sources/1
   # GET /income_sources/1.json
-  def show
-  end
+  def show; end
 
   # GET /income_sources/new
   def new
@@ -18,8 +19,7 @@ class IncomeSourcesController < ApplicationController
   end
 
   # GET /income_sources/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /income_sources
   # POST /income_sources.json
@@ -62,13 +62,14 @@ class IncomeSourcesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_income_source
-      @income_source = IncomeSource.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def income_source_params
-      params.require(:income_source).permit(:full_name, :short_name, :credit_union_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_income_source
+    @income_source = IncomeSource.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def income_source_params
+    params.require(:income_source).permit(:full_name, :short_name, :credit_union_id)
+  end
 end

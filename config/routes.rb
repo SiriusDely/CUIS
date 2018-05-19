@@ -1,11 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
- # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   authenticated do
-    root :to => "credit_unions#index", as: :authenticated
+    root to: 'credit_unions#index', as: :authenticated
   end
 
-  root to: "page#home"
+  root to: 'page#home'
 
   # get "/home", to: "page#home"
 
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   resources :accounts
   # resources :transactions, controller: "transfers"
   # resources :transfers, path: "transactions", as: "transactions"
-  resources :transfers, path: "transactions"
+  resources :transfers, path: 'transactions'
   resources :share_products
   resources :share_accounts
   resources :share_statements
@@ -34,5 +35,4 @@ Rails.application.routes.draw do
   resources :checking_statements
   resources :income_sources
   resources :expense_allocations
-
- end
+end

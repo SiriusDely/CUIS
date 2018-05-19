@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateExpenseAllocations < ActiveRecord::Migration[5.1]
   def change
     create_table :expense_allocations do |t|

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CreditUnionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_credit_union, only: [:show, :edit, :update, :destroy]
+  before_action :set_credit_union, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -12,8 +14,7 @@ class CreditUnionsController < ApplicationController
 
   # GET /credit_unions/1
   # GET /credit_unions/1.json
-  def show
-  end
+  def show; end
 
   # GET /credit_unions/new
   def new
@@ -21,8 +22,7 @@ class CreditUnionsController < ApplicationController
   end
 
   # GET /credit_unions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /credit_unions
   # POST /credit_unions.json
@@ -65,13 +65,14 @@ class CreditUnionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_credit_union
-      @credit_union = CreditUnion.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def credit_union_params
-      params.require(:credit_union).permit(:full_name, :short_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_credit_union
+    @credit_union = CreditUnion.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def credit_union_params
+    params.require(:credit_union).permit(:full_name, :short_name)
+  end
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ShareStatementsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_share_statement, only: [:show, :edit, :update, :destroy]
+  before_action :set_share_statement, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -12,8 +14,7 @@ class ShareStatementsController < ApplicationController
 
   # GET /share_statements/1
   # GET /share_statements/1.json
-  def show
-  end
+  def show; end
 
   # GET /share_statements/new
   def new
@@ -68,13 +69,14 @@ class ShareStatementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_share_statement
-      @share_statement = ShareStatement.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def share_statement_params
-      params.require(:share_statement).permit(:share_account_id, :is_debit, :amount, :balance_type, :statement_type, :note)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_share_statement
+    @share_statement = ShareStatement.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def share_statement_params
+    params.require(:share_statement).permit(:share_account_id, :is_debit, :amount, :balance_type, :statement_type, :note)
+  end
 end

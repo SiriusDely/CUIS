@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class TransfersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_transfer, only: [:show, :edit, :update, :destroy]
+  before_action :set_transfer, only: %i[show edit update destroy]
   load_and_authorize_resource
 
   # GET /transfers
@@ -11,8 +13,7 @@ class TransfersController < ApplicationController
 
   # GET /transfers/1
   # GET /transfers/1.json
-  def show
-  end
+  def show; end
 
   # GET /transfers/new
   def new
@@ -20,8 +21,7 @@ class TransfersController < ApplicationController
   end
 
   # GET /transfers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /transfers
   # POST /transfers.json
@@ -64,13 +64,14 @@ class TransfersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transfer
-      @transfer = Transfer.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def transfer_params
-      params.require(:transfer).permit(:happened_at, :transferable_id, :transferable_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transfer
+    @transfer = Transfer.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def transfer_params
+    params.require(:transfer).permit(:happened_at, :transferable_id, :transferable_type)
+  end
 end

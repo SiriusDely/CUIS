@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
   def configure_permitted_parameters
     added_attrs = [:username, :email, :password, :first_name, :last_name, roles: []]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
@@ -11,7 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def layout
-    devise_controller? ? "devise" : "application"
+    devise_controller? ? 'devise' : 'application'
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShareStatement < ApplicationRecord
   belongs_to :share_account
   has_one :transfer, as: :transferable, dependent: :destroy
@@ -6,12 +8,11 @@ class ShareStatement < ApplicationRecord
   before_create :build_associated_transfer
   after_create :update_account_balance
 
-  BALANCE_TYPES = %i[ primary compulsory facultative]
+  BALANCE_TYPES = %i[primary compulsory facultative].freeze
 
   STATEMENT_TYPES = %i[ cash_deposit cash_withdrawal cash_installment_payment cash_loan_dilution
-    bank_deposit bank_withdrawal bank_installment_payment bank_loan_dilution
-    debit_correction credit_correction
-  ]
+                        bank_deposit bank_withdrawal bank_installment_payment bank_loan_dilution
+                        debit_correction credit_correction].freeze
 
   def balance_type=(balance_type)
     balance_type = balance_type.to_sym
@@ -41,45 +42,44 @@ class ShareStatement < ApplicationRecord
 
   def set_before_after_balance
     self.before =
-      case self.balance_type
+      case balance_type
       when :primary
-        self.share_account.primary_balance
+        share_account.primary_balance
       when :compulsory
-        self.share_account.compulsory_balance
+        share_account.compulsory_balance
       when :facultative
-        self.share_account.facultative_balance
+        share_account.facultative_balance
       end
 
-    self.after = self.before + (self.is_debit ? self.amount : -self.amount)
+    self.after = before + (is_debit ? amount : -amount)
   end
 
   def update_account_balance
-    case self.balance_type
+    case balance_type
     when :primary
-      self.share_account.update!(primary_balance: self.after)
+      share_account.update!(primary_balance: after)
     when :compulsory
-      self.share_account.update!(compulsory_balance: self.after)
+      share_account.update!(compulsory_balance: after)
     when :facultative
-      self.share_account.update!(facultative_balance: self.after)
+      share_account.update!(facultative_balance: after)
     end
   end
 
   def build_associated_transfer
-    transfer = build_transfer({ happened_at: DateTime.now })
-    cash_account = Account.find_by_code(100)
-    transfer.allotments.build({ account: cash_account, is_debit: self.is_debit, amount: self.amount, before: cash_account.balance, after: cash_account.balance + (self.is_debit ? self.amount : -self.amount), transfer: transfer })
+    transfer = build_transfer(happened_at: DateTime.now)
+    cash_account = Account.find_by(code: 100)
+    transfer.allotments.build(account: cash_account, is_debit: is_debit, amount: amount, before: cash_account.balance, after: cash_account.balance + (is_debit ? amount : -amount), transfer: transfer)
 
     deposit_account =
-      case self.balance_type
+      case balance_type
       when :primary
-        Account.find_by_code(500)
+        Account.find_by(code: 500)
       when :compulsory
-        Account.find_by_code(501)
+        Account.find_by(code: 501)
       when :facultative
-        Account.find_by_code(401)
+        Account.find_by(code: 401)
       end
 
-    transfer.allotments.build({ account: deposit_account, is_debit: self.is_debit, amount: self.amount, before: deposit_account.balance, after: deposit_account.balance + (self.is_debit ? self.amount : -self.amount), transfer: transfer })
+    transfer.allotments.build(account: deposit_account, is_debit: is_debit, amount: amount, before: deposit_account.balance, after: deposit_account.balance + (is_debit ? amount : -amount), transfer: transfer)
   end
-
 end

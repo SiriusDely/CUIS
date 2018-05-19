@@ -1,6 +1,7 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
-  ROLES = %i[super_admin manager cu_admin branch_head hr member_service teller]
+class User < ApplicationRecord
+  ROLES = %i[super_admin manager cu_admin branch_head hr member_service teller].freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,9 +14,9 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   # Only allow letter, number, underscore and punctuation.
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  validates :username, format: { with: /^[a-zA-Z0-9_\.]*$/, multiline: true }
   validate :validate_username
-  validates_presence_of :first_name, :last_name
+  validates :first_name, :last_name, presence: true
 
   def email_required?
     false
@@ -32,15 +33,15 @@ class User < ApplicationRecord
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions.to_h).where(["lower(username) = :value", { :value => login.downcase }]).first
-    elsif conditions.has_key?(:username)
+    if (login = conditions.delete(:login))
+      where(conditions.to_h).where(['lower(username) = :value', { value: login.downcase }]).first
+    elsif conditions.key?(:username)
       where(conditions.to_h).first
     end
   end
 
   def roles=(roles)
-    roles = [*roles].map { |r| r.to_sym }
+    roles = [*roles].map(&:to_sym)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
   end
 
@@ -57,8 +58,6 @@ class User < ApplicationRecord
   protected
 
   def validate_username
-    if User.where(email: username).exists?
-      errors.add(:username, :invalid)
-    end
+    errors.add(:username, :invalid) if User.where(email: username).exists?
   end
 end

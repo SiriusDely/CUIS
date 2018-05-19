@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ShareAccountsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_share_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_share_account, only: %i[show edit update destroy]
 
   load_and_authorize_resource
 
@@ -12,8 +14,7 @@ class ShareAccountsController < ApplicationController
 
   # GET /share_accounts/1
   # GET /share_accounts/1.json
-  def show
-  end
+  def show; end
 
   # GET /share_accounts/new
   def new
@@ -71,13 +72,14 @@ class ShareAccountsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_share_account
-      @share_account = ShareAccount.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def share_account_params
-      params.require(:share_account).permit(:number, :share_product_id, :member_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_share_account
+    @share_account = ShareAccount.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def share_account_params
+    params.require(:share_account).permit(:number, :share_product_id, :member_id)
+  end
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class AccountsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: %i[show edit update destroy]
   load_and_authorize_resource
 
   # GET /accounts
@@ -11,8 +13,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1
   # GET /accounts/1.json
-  def show
-  end
+  def show; end
 
   # GET /accounts/new
   def new
@@ -20,8 +21,7 @@ class AccountsController < ApplicationController
   end
 
   # GET /accounts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /accounts
   # POST /accounts.json
@@ -64,13 +64,14 @@ class AccountsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_account
-      @account = Account.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def account_params
-      params.require(:account).permit(:code, :account_type, :full_name, :short_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_account
+    @account = Account.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def account_params
+    params.require(:account).permit(:code, :account_type, :full_name, :short_name)
+  end
 end
