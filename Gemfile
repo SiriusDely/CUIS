@@ -33,6 +33,8 @@ gem 'devise'
 # gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'foundation-rails', '~> 6.0' # required
+gem 'autoprefixer-rails'
+
 # gem 'foundation_rails_helper', '~> 3.0'
 gem 'cancancan', '~> 2.0'
 
